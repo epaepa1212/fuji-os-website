@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuji OS - 山梨県のデジタル化未来を実装するOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 全局进度条 -->
+    <div class="progress-bar" id="progressBar" role="progressbar" aria-label="ページ読み込み進行状況"></div>
+
+    <!-- 固定头部导航 -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <div class="header__brand">
+                <a href="#" class="header__logo" data-i18n-key="nav.brand">Fuji OS</a>
+            </div>
+            
+            <nav class="header__nav">
+                <button class="header__menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 侧边目录 (默认隐藏) -->
+    <nav class="side-nav" id="sideNav" aria-label="サイドナビゲーション" aria-hidden="true">
+        <!-- 目录链接将在这里动态生成 -->
+    </nav>
+
+    <main>
+        <!-- [第1画面] Hero Section -->
+        <section class="hero-section">
+            <div class="hero-section__container">
+                <h1 class="hero-section__title">Fuji OS</h1>
+                <h2 class="hero-section__subtitle">「地方創生2.0へ。山梨の持つ無限の可能性を、共に実装するOS。」</h2>
+                
+                <div class="hero-section__description">
+                    <p>日本の「デジタル田園都市国家構想」という壮大なビジョンに深く呼応し、Fuji OSは単なるスマートシティソリューションではなく、山梨県のために特別に設計された<strong>デジタル変革オペレーティングシステム</strong>です。</p>
+                </div>
+            </div>
+            
+            <div class="hero-section__scroll-indicator" tabindex="0" role="button" aria-label="下へスクロール">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" role="img" aria-label="下向き矢印">
+                    <path d="m7 13 5 5 5-5"/>
+                    <path d="m7 6 5 5 5-5"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- [第2画面] Preface Section -->
+        <section class="preface-section">
+            <div class="preface-section__container">
+                <div class="preface-section__header">
+                    <h2 class="preface-section__title">序章：時代の号召に応え、山梨の潜在力を解放する</h2>
+                    <h3 class="preface-section__subtitle">「デジタル田園都市国家構想」に応え、山梨の未来を拓く</h3>
+                </div>
+                
+                <div class="preface-section__content">
+                    <div class="preface-section__left">
+                        <div class="section-content">
+                            <h4 class="section-content__title">時代背景：二重の挑戦の中の構造的機遇</h4>
+                            <p class="section-content__description">現在、日本は歴史の十字路に立っています。一方では、「地方創生」と「カーボンニュートラル」という2つの国家級戦略課題が迫っており、地方政府は人口高齢化、産業空洞化の厳しい現実の中で持続可能な発展の新たな道筋を見つけることが求められています。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="preface-section__right">
+                        <div class="tourism-trend">
+                            <div class="chart-container">
+                                <div class="chart-title">観光復活データ</div>
+                                <div class="chart-data">
+                                    <div class="data-point" data-year="2019">100%</div>
+                                    <div class="data-point" data-year="2020">22%</div>
+                                    <div class="data-point" data-year="2021">7%</div>
+                                    <div class="data-point" data-year="2022">15%</div>
+                                    <div class="data-point" data-year="2023">65%</div>
+                                    <div class="data-point" data-year="2024">142%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [第3画面] OS Introduction -->
+        <section class="os-section">
+            <div class="os-section__container">
+                <div class="os-section__header">
+                    <h2 class="os-section__title">第一章：我々の答え - Fuji OS、全く新しいデジタル基盤</h2>
+                    <h3 class="os-section__subtitle">なぜ「アプリケーション」ではなく、「オペレーティングシステム」なのか？</h3>
+                </div>
+                
+                <div class="advantages">
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="資本軽量化アイコン">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6m11-5h-6m-6 0H1"/>
+                            </svg>
+                        </div>
+                        <div class="advantage-card__content">
+                            <h4 class="advantage-card__title">資本の劇的軽量化</h4>
+                            <p class="advantage-card__description">巨大な専用データセンターを建設する必要がなく、世界既存の分散計算リソースを利用します。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="耐障害性アイコン">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <div class="advantage-card__content">
+                            <h4 class="advantage-card__title">極高い耐障害性</h4>
+                            <p class="advantage-card__description">分散アーキテクチャは天然的に「単一障害点なし」の特性を具備し、災害多発国である日本の地理特性に特別な戦略価値を持ちます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="イノベーション生態系アイコン">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="advantage-card__content">
+                            <h4 class="advantage-card__title">開放イノベーション生態</h4>
+                            <p class="advantage-card__description">分散アーキテクチャは開放的な技術標準とプロトコルを採用し、どの開発者でもFuji OSプラットフォーム上でアプリケーションとサービスを開発できます。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-expander">
+                    <button class="expander-button" id="osDetailExpander">
+                        <span class="expander-button__text">詳しく見る</span>
+                        <svg class="expander-button__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 详细内容 -->
+            <div class="os-detail-content" id="osDetailContent">
+                <div class="os-detail-content__inner">
+                    <div class="detail-section">
+                        <h4>分散アーキテクチャの技術的優位性</h4>
+                        <p>従来のスマートシティプロジェクトが抱える「中央集権型ブレイン」の限界を解決するため、Fuji OSは分散型ニューラルネットワークアーキテクチャを採用しています。</p>
+                        
+                        <div class="tech-comparison">
+                            <div class="comparison-item">
+                                <h5>従来のアプローチ</h5>
+                                <ul>
+                                    <li>巨額の初期投資が必要</li>
+                                    <li>単一障害点のリスク</li>
+                                    <li>閉鎖的な開発環境</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="comparison-item">
+                                <h5>Fuji OSのアプローチ</h5>
+                                <ul>
+                                    <li>段階的な投資とスケーリング</li>
+                                    <li>分散型による高い障害耐性</li>
+                                    <li>オープンな開発エコシステム</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [第4画面] Eco-Go Pillar -->
+        <section class="pillar-section pillar-section--eco-go">
+            <div class="pillar-section__container">
+                <div class="pillar-section__visual" id="ecoGoVisual">
+                    <div class="traffic-visualization">
+                        <div class="traffic-network">
+                            <div class="traffic-node traffic-node--main"></div>
+                            <div class="traffic-node traffic-node--secondary"></div>
+                            <div class="traffic-node traffic-node--secondary"></div>
+                            <div class="traffic-node traffic-node--secondary"></div>
+                            
+                            <!-- 交通流动线 -->
+                            <div class="traffic-flow traffic-flow--primary"></div>
+                            <div class="traffic-flow traffic-flow--secondary"></div>
+                            <div class="traffic-flow traffic-flow--alternative"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pillar-section__content" id="ecoGoContent">
+                    <div class="pillar-header">
+                        <h2 class="pillar-title">支柱一：Eco-Go</h2>
+                        <h3 class="pillar-subtitle">すべての移動を、地域経済の活力に転換</h3>
+                        <p class="pillar-tagline">「スムーズな交通こそ、最高のおもてなし。」</p>
+                    </div>
+                    
+                    <div class="pillar-description">
+                        <p>都市交通エントロピー理論に基づく革新的なナビゲーションシステム。個体最適から全体最適への転換により、渋滞緩和と地域経済活性化を同時に実現します。</p>
+                    </div>
+                    
+                    <div class="section-expander">
+                        <button class="expander-button" id="ecoGoDetailExpander">
+                            <span class="expander-button__text">詳しく見る</span>
+                            <svg class="expander-button__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Eco-Go 详细内容 -->
+            <div class="eco-go-detail-content" id="ecoGoDetailContent">
+                <div class="eco-go-detail-content__inner">
+                    <h4>エントロピー最小化による交通最適化</h4>
+                    
+                    <div class="entropy-explanation">
+                        <div class="entropy-concept">
+                            <h5>高エントロピー状態 (従来)</h5>
+                            <ul>
+                                <li>車両が主要道路に集中</li>
+                                <li>深刻な渋滞と排出増加</li>
+                                <li>運転者のストレス増大</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="entropy-concept">
+                            <h5>低エントロピー状態 (Eco-Go)</h5>
+                            <ul>
+                                <li>車流の均等分散</li>
+                                <li>エネルギー消費最小化</li>
+                                <li>快適な運転体験</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="reward-mechanism">
+                        <h5>科学的インセンティブシステム</h5>
+                        <div class="formula">
+                            <code>C_weight = Σ(ΔV × SII)</code>
+                        </div>
+                        <p>貢献度 = 転移車両数 × システム不安定指数</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [第5画面] Anshin Pillar -->
+        <section class="pillar-section pillar-section--anshin">
+            <div class="pillar-section__container">
+                <div class="pillar-section__content">
+                    <div class="pillar-header">
+                        <h2 class="pillar-title">支柱二：Anshin</h2>
+                        <h3 class="pillar-subtitle">世界第一の安心観光地へ向けて</h3>
+                        <p class="pillar-tagline">「最先端テクノロジーで、揺るぎない安心を築く。」</p>
+                    </div>
+                    
+                    <div class="pillar-description">
+                        <p>AI駆動のリアルタイム災害感知ネットワークと「最安全優先」避難企画エンジンにより、山梨県を世界最高水準の安心観光地に変革します。</p>
+                    </div>
+                    
+                    <div class="section-expander">
+                        <button class="expander-button" id="anshinDetailExpander">
+                            <span class="expander-button__text">詳しく見る</span>
+                            <svg class="expander-button__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pillar-section__visual">
+                    <div class="safety-network">
+                        <div class="network-center">
+                            <div class="center-node">AI</div>
+                        </div>
+                        
+                        <div class="network-nodes">
+                            <div class="safety-node safety-node--sensor">センサー</div>
+                            <div class="safety-node safety-node--camera">カメラ</div>
+                            <div class="safety-node safety-node--user">ユーザー</div>
+                            <div class="safety-node safety-node--vehicle">車両</div>
+                        </div>
+                        
+                        <svg class="connection-lines" viewBox="0 0 400 300" role="img" aria-label="ネットワーク接続線">
+                            <line class="connection-line" x1="200" y1="150" x2="100" y2="80" />
+                            <line class="connection-line" x1="200" y1="150" x2="300" y2="80" />
+                            <line class="connection-line" x1="200" y1="150" x2="100" y2="220" />
+                            <line class="connection-line" x1="200" y1="150" x2="300" y2="220" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anshin 详细内容 -->
+            <div class="anshin-detail-content" id="anshinDetailContent">
+                <div class="anshin-detail-content__inner">
+                    <h4>革命的な官民協力モデル</h4>
+                    
+                    <div class="cooperation-model">
+                        <div class="cooperation-item">
+                            <h5>トヨタとの戦略協力</h5>
+                            <ul>
+                                <li>30万台の車両データをリアルタイム活用</li>
+                                <li>「初報情報」スーパー報奨システム</li>
+                                <li>ナビシステム直接統合</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cooperation-item">
+                            <h5>金融機関との価値共創</h5>
+                            <ul>
+                                <li>リスク価値軽減モデル</li>
+                                <li>資産保護最大化アルゴリズム</li>
+                                <li>データ貢献収益共有</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="safety-benefits">
+                        <h5>期待される効果</h5>
+                        <ul>
+                            <li>災害対応時間を従来の1/3に短縮</li>
+                            <li>避難効率200%向上</li>
+                            <li>観光客の安全満足度95%以上</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [第6画面] Yama-Avatars Pillar -->
+        <section class="pillar-section pillar-section--avatars">
+            <div class="pillar-section__container">
+                <div class="pillar-section__visual">
+                    <div class="avatars-showcase">
+                        <div class="avatar-wheel">
+                            <div class="avatar-center">
+                                <div class="culture-core">文化</div>
+                            </div>
+                            
+                            <div class="avatar-items">
+                                <div class="avatar-item" data-city="kofu">信玄</div>
+                                <div class="avatar-item" data-city="fujiyoshida">さくら姫</div>
+                                <div class="avatar-item" data-city="yamanashi">桃の守り</div>
+                                <div class="avatar-item" data-city="koshu">彩安</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pillar-section__content">
+                    <div class="pillar-header">
+                        <h2 class="pillar-title">支柱三：Yama-Avatars</h2>
+                        <h3 class="pillar-subtitle">山梨の文化が、あなただけの唯一無二の旅伴に</h3>
+                        <p class="pillar-tagline">「13の市が、一つのチームとして、あなたをお迎えします。」</p>
+                    </div>
+                    
+                    <div class="pillar-description">
+                        <p>山梨県13市の独特な文化遺伝子をデジタル時代の「感情的護城河」に転化。歴史・伝説・現代文化の三次元融合により、複製不可能な旅行体験を創造します。</p>
+                    </div>
+                    
+                    <div class="section-expander">
+                        <button class="expander-button" id="avatarsDetailExpander">
+                            <span class="expander-button__text">詳しく見る</span>
+                            <svg class="expander-button__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Avatars 详细内容 -->
+            <div class="avatars-detail-content" id="avatarsDetailContent">
+                <div class="avatars-detail-content__inner">
+                    <h4>13市完全版アバターエコシステム</h4>
+                    
+                    <div class="avatars-table-container">
+                        <table class="avatars-table">
+                            <thead>
+                                <tr>
+                                    <th>市</th>
+                                    <th>キャラクター</th>
+                                    <th>コア文化・データポイント</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>甲府市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>信玄の使者</td>
+                                    <td><span class="mobile-label">文化要素: </span>武田信玄・甲州印伝・アニメ『mono』聖地</td>
+                                </tr>
+                                <tr>
+                                    <td>富士吉田市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>さくら姫</td>
+                                    <td><span class="mobile-label">文化要素: </span>富士山信仰・吉田火祭・忠霊塔・伝統織物</td>
+                                </tr>
+                                <tr>
+                                    <td>甲斐市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>龍王</td>
+                                    <td><span class="mobile-label">文化要素: </span>龍王地名伝説・甲斐銚子塚古墳・安藤忠雄建築</td>
+                                </tr>
+                                <tr>
+                                    <td>笛吹市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>桃桃ちゃん</td>
+                                    <td><span class="mobile-label">文化要素: </span>日本一の桃・葡萄・石和温泉・鵜飼文化</td>
+                                </tr>
+                                <tr>
+                                    <td>北杜市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>星空の醸造家</td>
+                                    <td><span class="mobile-label">文化要素: </span>白州ウィスキー・八ヶ岳の星空・清里高原・名水</td>
+                                </tr>
+                                <tr>
+                                    <td>都留市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>織姫</td>
+                                    <td><span class="mobile-label">文化要素: </span>徐福伝説と鶴・伝統織物産業</td>
+                                </tr>
+                                <tr>
+                                    <td>山梨市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>桃の守り</td>
+                                    <td><span class="mobile-label">文化要素: </span>桃畑の悲劇伝説・アニメ『神様になった日』聖地</td>
+                                </tr>
+                                <tr>
+                                    <td>大月市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>猿橋</td>
+                                    <td><span class="mobile-label">文化要素: </span>日本三奇橋「猿橋」・岩殿山城址</td>
+                                </tr>
+                                <tr>
+                                    <td>韮崎市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>神玉</td>
+                                    <td><span class="mobile-label">文化要素: </span>甲斐源氏発祥・巫女伝説・女性画家美術館</td>
+                                </tr>
+                                <tr>
+                                    <td>南アルプス市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>白根</td>
+                                    <td><span class="mobile-label">文化要素: </span>日本第二高峰・北岳・南アルプス国立公園・果樹農業</td>
+                                </tr>
+                                <tr>
+                                    <td>上野原市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>西山陽</td>
+                                    <td><span class="mobile-label">文化要素: </span>『千と千尋の神隠し』インスピレーション地・漆芸工房</td>
+                                </tr>
+                                <tr>
+                                    <td>甲州市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>彩安</td>
+                                    <td><span class="mobile-label">文化要素: </span>甲州ワイン・傑出女性醸造家・武田家終焉の地</td>
+                                </tr>
+                                <tr>
+                                    <td>中央市</td>
+                                    <td><span class="mobile-label">キャラクター: </span>繭穂</td>
+                                    <td><span class="mobile-label">文化要素: </span>蚕繭工芸「シルクフラワー」・アニメ『スーパーカブ』聖地</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [第7画面] Yama-Navi Pillar -->
+        <section class="pillar-section pillar-section--navi">
+            <div class="pillar-section__container">
+                <div class="pillar-section__content">
+                    <div class="pillar-header">
+                        <h2 class="pillar-title">支柱四：Yama-Navi</h2>
+                        <h3 class="pillar-subtitle">あなたの「好き」で、旅をカスタマイズ</h3>
+                        <p class="pillar-tagline">「そして、すべての体験が、あなたの資産になります。」</p>
+                    </div>
+                    
+                    <div class="pillar-description">
+                        <p>RAGアーキテクチャによりAI「幻覚」問題を解決し、リアルタイム情報に基づく完全パーソナライズ旅行企画を実現。「支出を投資に」変える革新的価値創造モデル。</p>
+                    </div>
+                    
+                    <div class="section-expander">
+                        <button class="expander-button" id="naviDetailExpander">
+                            <span class="expander-button__text">詳しく見る</span>
+                            <svg class="expander-button__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pillar-section__visual">
+                    <div class="navi-system">
+                        <div class="rag-architecture">
+                            <div class="rag-layer rag-layer--retrieval">
+                                <div class="layer-title">情報検索</div>
+                                <div class="data-sources">
+                                    <div class="data-source">交通</div>
+                                    <div class="data-source">レストラン</div>
+                                    <div class="data-source">観光地</div>
+                                </div>
+                            </div>
+                            
+                            <div class="rag-layer rag-layer--generation">
+                                <div class="layer-title">AI処理</div>
+                                <div class="ai-process">
+                                    <div class="process-step">解析</div>
+                                    <div class="process-step">最適化</div>
+                                    <div class="process-step">生成</div>
+                                </div>
+                            </div>
+                            
+                            <div class="rag-layer rag-layer--output">
+                                <div class="layer-title">カスタムプラン</div>
+                                <div class="plan-output">
+                                    <div class="plan-item">ルート</div>
+                                    <div class="plan-item">体験</div>
+                                    <div class="plan-item">報酬</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Yama-Navi 详细内容 -->
+            <div class="navi-detail-content" id="naviDetailContent">
+                <div class="navi-detail-content__inner">
+                    <h4>RAGアーキテクチャの技術革新</h4>
+                    
+                    <div class="rag-explanation">
+                        <div class="rag-stage">
+                            <h5>第一段階：需要理解と意図識別</h5>
+                            <p>ユーザーの興味タグと個性化ニーズを自然言語処理技術で深層理解</p>
+                        </div>
+                        
+                        <div class="rag-stage">
+                            <h5>第二段階：リアルタイム情報検索</h5>
+                            <ul>
+                                <li>Japan Travel by NAVITIME - 最新交通時刻表</li>
+                                <li>Tabelog & Gurunavi - レストラン評価・営業状況</li>
+                                <li>MapFan - 精確な地理位置・バリアフリー情報</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rag-stage">
+                            <h5>第三段階：インテリジェント組合と最適化</h5>
+                            <p>交通効率、体力消耗、予算制約等を考慮したルート最適化</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-model">
+                        <h5>「支出変投資」ビジネスモデル革新</h5>
+                        <div class="investment-flow">
+                            <div class="flow-step">企画時：期待報酬表示</div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step">体験時：結(Yui)獲得</div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step">循環時：県内での価値活用</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [第8画面] 经济引擎章节 -->
+        <section class="engine-section">
+            <div class="engine-section__container">
+                <div class="engine-section__header">
+                    <h2 class="engine-section__title">第三章：経済エンジン</h2>
+                    <h3 class="engine-section__subtitle">価値が地域内循環する永動機</h3>
+                </div>
+                
+                <div class="engine-section__visualization">
+                    <div class="engine-core">
+                        <div class="engine-core__center">
+                            <span class="engine-core__center-text">価値<br>循環</span>
+                        </div>
+                        
+                        <div class="engine-ring engine-ring--inner"></div>
+                        <div class="engine-ring engine-ring--outer"></div>
+                        
+                        <div class="engine-node engine-node--top">
+                            <span class="engine-node__text">算力<br>收益</span>
+                        </div>
+                        <div class="engine-node engine-node--right">
+                            <span class="engine-node__text">消費<br>触発</span>
+                        </div>
+                        <div class="engine-node engine-node--bottom">
+                            <span class="engine-node__text">双向<br>分配</span>
+                        </div>
+                        <div class="engine-node engine-node--left">
+                            <span class="engine-node__text">跨网<br>補贴</span>
+                        </div>
+                        
+                        <div class="engine-flow engine-flow--vertical engine-flow--top"></div>
+                        <div class="engine-flow engine-flow--horizontal engine-flow--right"></div>
+                        <div class="engine-flow engine-flow--vertical engine-flow--bottom"></div>
+                        <div class="engine-flow engine-flow--horizontal engine-flow--left"></div>
+                    </div>
+                </div>
+                
+                <div class="engine-section__content">
+                    <p class="engine-section__description">Fuji OSの経済エンジンは、自己価値生産可能な持続可能システムとして設計されています。</p>
+                    
+                    <div class="section-expander">
+                        <button class="expander-button expander-button--engine" id="engineDetailExpander">
+                            <span class="expander-button__text">詳しく見る</span>
+                            <svg class="expander-button__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 经济引擎详细内容 -->
+            <div class="engine-detail-content" id="engineDetailContent">
+                <div class="engine-detail-content__inner">
+                    <h4 class="engine-detail-content__title">永続的価値循環メカニズム</h4>
+                    
+                    <div class="engine-mechanism">
+                        <div class="engine-mechanism__item">
+                            <h5 class="engine-mechanism__title">算力収益注入</h5>
+                            <p class="engine-mechanism__desc">世界最先端の分散型AIネットワークから持続的な算力報酬を獲得し、結(Yui)積分プールの価値源泉を構成。</p>
+                        </div>
+                        
+                        <div class="engine-mechanism__item">
+                            <h5 class="engine-mechanism__title">消費触発システム</h5>
+                            <p class="engine-mechanism__desc">観光客と住民の実体消費行為を通じて結(Yui)を生成。地理・消費・時間・金額の四重検証で真実性を確保。</p>
+                        </div>
+                        
+                        <div class="engine-mechanism__item">
+                            <h5 class="engine-mechanism__title">60:40黄金分配</h5>
+                            <p class="engine-mechanism__desc">商家60%、ユーザー40%の最適比例により、供給側のネットワーク効果とユーザー側の持続参加を同時実現。</p>
+                        </div>
+                        
+                        <div class="engine-mechanism__item">
+                            <h5 class="engine-mechanism__title">跨サブネット補贴</h5>
+                            <p class="engine-mechanism__desc">商業化サブネットから公共サービスサブネットへの自動資源配分により、エコシステム全体の持続発展を保証。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="engine-benefits">
+                        <h5 class="engine-benefits__title">価値循環の永動機効果</h5>
+                        <ul class="engine-benefits__list">
+                            <li class="engine-benefits__item">
+                                <span class="engine-benefits__icon">●</span>
+                                優質サービス体験 → より多くのユーザー参加
+                            </li>
+                            <li class="engine-benefits__item">
+                                <span class="engine-benefits__icon">●</span>
+                                より多くのユーザー → より多くの真実消費と価値創造
+                            </li>
+                            <li class="engine-benefits__item">
+                                <span class="engine-benefits__icon">●</span>
+                                より多くの価値創造 → より多くの結(Yui)報奬
+                            </li>
+                            <li class="engine-benefits__item">
+                                <span class="engine-benefits__icon">●</span>
+                                より多くの報奬 → 商家のより優質なサービス提供
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [第9屏] 未来への共創パートナーシップ -->
+        <section class="partnership-section">
+            <div class="partnership-section__container">
+                <!-- 上半部分：标题和邀请陈词 -->
+                <div class="partnership-section__header">
+                    <h2 class="partnership-section__title">未来への共創パートナーシップ</h2>
+                    <h3 class="partnership-section__subtitle">共に歩み、共に創り、共に繋がる未来</h3>
+                    
+                    <div class="partnership-section__invitation">
+                        <p class="partnership-section__paragraph">Fuji OSは単なる技術プロダクトではありません。これは山梨県のデジタル未来を共に実装する<strong>共創プラットフォーム</strong>です。</p>
+                        
+                        <div class="partnership-section__vision">
+                            <div class="vision-item">
+                                <div class="vision-icon">🤝</div>
+                                <div class="vision-content">
+                                    <h4>政府機関との協力</h4>
+                                    <p>政策支援と実装実証の橋渡し</p>
+                                </div>
+                            </div>
+                            
+                            <div class="vision-item">
+                                <div class="vision-icon">🏢</div>
+                                <div class="vision-content">
+                                    <h4>企業パートナーとの連携</h4>
+                                    <p>商業価値と社会価値の両立実現</p>
+                                </div>
+                            </div>
+                            
+                            <div class="vision-item">
+                                <div class="vision-icon">🌍</div>
+                                <div class="vision-content">
+                                    <h4>地域コミュニティとの共生</h4>
+                                    <p>住民参与と文化継承の新モデル</p>
+                                </div>
+                            </div>
+                            
+                            <div class="vision-item">
+                                <div class="vision-icon">⚡</div>
+                                <div class="vision-content">
+                                    <h4>技術革新の継続推進</h4>
+                                    <p>AI・ブロックチェーン・ IoTの融合発展</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="partnership-section__paragraph partnership-section__paragraph--highlight">
+                            <strong>今こそ、山梨県の無限の可能性を共に実装する時です。</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 下半部分：联系表单 -->
+                <div class="partnership-section__contact">
+                    <div class="contact-form-container">
+                        <h4 class="contact-form__title">共創パートナー登録</h4>
+                        <p class="contact-form__description">Fuji OSプロジェクトへの参画にご興味をお持ちの方は、こちらのフォームからお気軽にお問い合わせください。</p>
+                        
+                        <form class="contact-form" id="partnershipForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="partnerName" class="form-label">お名前 <span class="form-required">*</span></label>
+                                    <input type="text" id="partnerName" name="name" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="partnerCompany" class="form-label">所属組織</label>
+                                    <input type="text" id="partnerCompany" name="company" class="form-input">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="partnerEmail" class="form-label">メールアドレス <span class="form-required">*</span></label>
+                                    <input type="email" id="partnerEmail" name="email" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="partnerPhone" class="form-label">電話番号</label>
+                                    <input type="tel" id="partnerPhone" name="phone" class="form-input">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group--full">
+                                <label for="partnerInterest" class="form-label">協力分野</label>
+                                <select id="partnerInterest" name="interest" class="form-select">
+                                    <option value="">選択してください</option>
+                                    <option value="government">政府機関・自治体</option>
+                                    <option value="enterprise">企業パートナー</option>
+                                    <option value="community">地域コミュニティ</option>
+                                    <option value="technology">技術開発・研究</option>
+                                    <option value="investment">投資・資金調達</option>
+                                    <option value="other">その他</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group form-group--full">
+                                <label for="partnerMessage" class="form-label">メッセージ <span class="form-required">*</span></label>
+                                <textarea id="partnerMessage" name="message" class="form-textarea" rows="4" placeholder="メッセージ" required></textarea>
+                            </div>
+                            
+                            <div class="form-submit">
+                                <button type="submit" class="form-button">
+                                    <span class="form-button__text">共創への一歩を踏み出す</span>
+                                    <svg class="form-button__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="送信矢印">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3 class="footer__title">Fuji OS</h3>
+                    <p class="footer__tagline">山梨県のデジタル化未来を実装するOS</p>
+                </div>
+                
+                <div class="footer__download">
+                    <a href="#" class="download-button" id="downloadWhitepaper">
+                        <div class="download-button__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                        </div>
+                        <div class="download-button__content">
+                            <span class="download-button__title">プロジェクト白書をダウンロード</span>
+                            <span class="download-button__subtitle">技術仕様と実装ロードマップ（PDF）</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2024 Fuji OS Project. All rights reserved.</p>
+                <p class="footer__note">本プロジェクトは山梨県の持続可能な発展を支援する技術実証です。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
