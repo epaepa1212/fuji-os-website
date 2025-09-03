@@ -130,6 +130,15 @@ textarea:focus,
     align-items: center;
 }
 
+.header__brand {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
 /* Legacy text logo styles - now replaced by SVG logo */
 .header__logo {
     display: block;
@@ -206,6 +215,49 @@ textarea:focus,
 
 .side-nav.active {
     left: 0;
+}
+
+.side-nav__content {
+    padding: 2rem 1.5rem;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.side-nav__header {
+    margin-bottom: 2rem;
+}
+
+.side-nav__header h3 {
+    color: var(--color-fuji-blue);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.side-nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-nav__item {
+    margin-bottom: 0.5rem;
+}
+
+.side-nav__link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--color-sumi-ink);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.side-nav__link:hover {
+    background-color: var(--color-zen-gray);
+    color: var(--color-fuji-blue);
+    transform: translateX(5px);
 }
 
 /* ------------------------- */
@@ -3225,7 +3277,13 @@ textarea:focus,
 
 /* --- Logo SVG Styles --- */
 .header__logo { display: block; line-height: 0; }
-.header__logo-svg { height: 45px; width: auto; transition: opacity 0.3s ease; }
+.header__logo-svg { 
+    height: 45px; 
+    width: auto; 
+    transition: opacity 0.3s ease;
+    display: block;
+    max-width: 200px;
+}
 .header__logo:hover .header__logo-svg { opacity: 0.8; }
 .footer__logo-svg { height: 60px; width: auto; margin-bottom: 1rem; }
 /* Keep SVG logotype visible - matches reference design with FUJI (black) OS (red) text */

@@ -17,31 +17,63 @@
     <!-- 固定头部导航 -->
     <header class="header" id="header">
         <div class="header__container">
+            <button class="header__menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+            
             <div class="header__brand">
                 <img src="./assets/logo.svg" class="header__logo-svg" alt="Fuji OS Logo">
             </div>
             
-            <nav class="header__nav">
-                <div class="header__lang-switcher">
-                    <span>日本語</span>
-                </div>
-                <button class="header__menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </button>
-            </nav>
+            <div class="header__lang-switcher">
+                <span>日本語</span>
+            </div>
         </div>
     </header>
 
     <!-- 侧边目录 (默认隐藏) -->
     <nav class="side-nav" id="sideNav" aria-label="サイドナビゲーション" aria-hidden="true">
-        <!-- 目录链接将在这里动态生成 -->
+        <div class="side-nav__content">
+            <div class="side-nav__header">
+                <h3>目次</h3>
+            </div>
+            <ul class="side-nav__list">
+                <li class="side-nav__item">
+                    <a href="#hero" class="side-nav__link">Fuji OS</a>
+                </li>
+                <li class="side-nav__item">
+                    <a href="#preface" class="side-nav__link">序章</a>
+                </li>
+                <li class="side-nav__item">
+                    <a href="#os-intro" class="side-nav__link">OS紹介</a>
+                </li>
+                <li class="side-nav__item">
+                    <a href="#eco-go" class="side-nav__link">Eco-Go</a>
+                </li>
+                <li class="side-nav__item">
+                    <a href="#anshin" class="side-nav__link">Anshin</a>
+                </li>
+                <li class="side-nav__item">
+                    <a href="#avatars" class="side-nav__link">Yama-Avatars</a>
+                </li>
+                <li class="side-nav__item">
+                    <a href="#navi" class="side-nav__link">Yama-Navi</a>
+                </li>
+                <li class="side-nav__item">
+                    <a href="#engine" class="side-nav__link">経済エンジン</a>
+                </li>
+                <li class="side-nav__item">
+                    <a href="#partnership" class="side-nav__link">パートナーシップ</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <main>
         <!-- [セクション1] Hero Section -->
-        <section class="hero-section">
+        <section class="hero-section" id="hero">
             <div class="hero-section__container">
                 <h1 class="hero-section__title">Fuji OS</h1>
                 <h2 class="hero-section__subtitle">「地方創生2.0へ。山梨の持つ無限の可能性を、共に実装するOS。」</h2>
@@ -60,7 +92,7 @@
         </section>
 
         <!-- [セクション2] Preface Section -->
-        <section class="preface-section animated-section" data-animation-direction="left">
+        <section class="preface-section animated-section" id="preface" data-animation-direction="left">
             <div class="preface-section__container">
                 <div class="preface-section__header">
                     <h2 class="preface-section__title">序章：時代の号召に応え、山梨の潜在力を解放する</h2>
@@ -95,7 +127,7 @@
         </section>
 
         <!-- [セクション3] OS Introduction -->
-        <section class="os-section animated-section" data-animation-direction="right">
+        <section class="os-section animated-section" id="os-intro" data-animation-direction="right">
             <div class="os-section__container">
                 <div class="os-section__header">
                     <h2 class="os-section__title">第一章：我々の答え - Fuji OS、全く新しいデジタル基盤</h2>
@@ -237,7 +269,7 @@
         </section>
 
         <!-- [セクション4] Eco-Go Pillar -->
-        <section class="pillar-section pillar-section--eco-go animated-section" data-animation-direction="left">
+        <section class="pillar-section pillar-section--eco-go animated-section" id="eco-go" data-animation-direction="left">
             <div class="pillar-section__container">
                 <div class="pillar-section__visual" id="ecoGoVisual">
                     <div class="traffic-visualization">
@@ -394,7 +426,7 @@
         </section>
 
         <!-- [セクション5] Anshin Pillar -->
-        <section class="pillar-section pillar-section--anshin animated-section" data-animation-direction="right">
+        <section class="pillar-section pillar-section--anshin animated-section" id="anshin" data-animation-direction="right">
             <div class="pillar-section__container">
                 <div class="pillar-section__content">
                     <div class="pillar-header">
@@ -523,7 +555,7 @@
         </section>
 
         <!-- [セクション6] Yama-Avatars Pillar -->
-        <section class="pillar-section pillar-section--avatars animated-section" data-animation-direction="left">
+        <section class="pillar-section pillar-section--avatars animated-section" id="avatars" data-animation-direction="left">
             <div class="pillar-section__container">
                 <div class="pillar-section__visual">
                     <div class="avatars-showcase">
@@ -655,7 +687,7 @@
         </section>
 
         <!-- [セクション7] Yama-Navi Pillar -->
-        <section class="pillar-section pillar-section--navi animated-section" data-animation-direction="right">
+        <section class="pillar-section pillar-section--navi animated-section" id="navi" data-animation-direction="right">
             <div class="pillar-section__container">
                 <div class="pillar-section__content">
                     <div class="pillar-header">
@@ -833,7 +865,7 @@
         </section>
 
         <!-- [セクション8] 経済エンジン -->
-        <section class="engine-section animated-section" data-animation-direction="left">
+        <section class="engine-section animated-section" id="engine" data-animation-direction="left">
             <div class="engine-section__container">
                 <div class="engine-section__header">
                     <h2 class="engine-section__title">第三章：経済エンジン</h2>
@@ -956,7 +988,7 @@
         </section>
 
         <!-- [セクション9] 未来への共創パートナーシップ -->
-        <section class="partnership-section animated-section" data-animation-direction="right">
+        <section class="partnership-section animated-section" id="partnership" data-animation-direction="right">
             <div class="partnership-section__container">
                 <!-- 上半部分：标题和邀请陈词 -->
                 <div class="partnership-section__header">
