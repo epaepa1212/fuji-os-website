@@ -1876,14 +1876,7 @@ textarea:focus,
         text-align: left;
     }
     
-    /* Mobile labels now handled in HTML with .mobile-label spans */
-    .mobile-label {
-        font-weight: 700;
-        color: var(--color-sumi-ink);
-        display: inline-block;
-        margin-bottom: 0.3rem;
-        opacity: 0.7;
-    }
+    /* Mobile labels removed - direct text now used in table cells */
 }
 
 /* ------------------------- */
@@ -3239,3 +3232,153 @@ textarea:focus,
 /* 移除SVG内嵌的文字 */
 .header__logo-svg #fuji-os-logotype,
 .footer__logo-svg #fuji-os-logotype { display: none; }
+
+/* --- Language Switcher Placeholder --- */
+.header__lang-switcher {
+    background: transparent;
+    border: 1px solid rgba(73, 89, 108, 0.3);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-sumi-ink);
+    opacity: 0.6;
+    cursor: default;
+    user-select: none;
+}
+
+/* --- Enhanced Expander Button System --- */
+.expander-button {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-fuji-blue), #2980B9);
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.expander-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.expander-button:active {
+    transform: translateY(0);
+}
+
+.expander-button__text {
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+.expander-button__arrow {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.expander-button.active .expander-button__arrow {
+    transform: rotate(180deg);
+}
+
+/* Special styling for engine section expander */
+.expander-button--engine {
+    background: linear-gradient(135deg, var(--color-akatsuki-gold), #E67E22);
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+}
+
+.expander-button--engine:hover {
+    box-shadow: 0 8px 25px rgba(241, 196, 15, 0.4);
+}
+
+/* --- Universal Animation System --- */
+/* Initial state for all animated elements */
+.animated-section {
+    opacity: 1;
+}
+
+/* Preface Section Animations */
+.animated-section[data-animation-direction="left"].in-view .preface-section__left {
+    animation: slideInLeft 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.animated-section[data-animation-direction="left"].in-view .preface-section__right {
+    animation: slideInRight 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards 0.2s;
+}
+
+/* OS Section Animations */
+.animated-section[data-animation-direction="right"].in-view .os-section__header {
+    animation: slideInRight 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.animated-section[data-animation-direction="right"].in-view .advantages {
+    animation: slideInLeft 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards 0.3s;
+}
+
+/* Pillar Section Animations - Left Direction */
+.animated-section[data-animation-direction="left"].in-view .pillar-section__visual.animate {
+    animation: slideInLeft 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.animated-section[data-animation-direction="left"].in-view .pillar-section__content.animate {
+    animation: slideInRight 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Pillar Section Animations - Right Direction */
+.animated-section[data-animation-direction="right"].in-view .pillar-section__content.animate {
+    animation: slideInLeft 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.animated-section[data-animation-direction="right"].in-view .pillar-section__visual.animate {
+    animation: slideInRight 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Engine Section Animations */
+.animated-section[data-animation-direction="left"].in-view .engine-section__container.animate {
+    animation: slideInLeft 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Partnership Section Animations */
+.animated-section[data-animation-direction="right"].in-view .partnership-section__container.animate {
+    animation: slideInRight 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Initial states for elements that slide in */
+.preface-section__left,
+.preface-section__right,
+.os-section__header,
+.advantages,
+.pillar-section__visual:not(.animate),
+.pillar-section__content:not(.animate),
+.engine-section__container:not(.animate),
+.partnership-section__container:not(.animate) {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: none;
+}
+
+.preface-section__right,
+.advantages,
+.pillar-section__visual:not(.animate)[data-animation-direction="right"],
+.pillar-section__content:not(.animate)[data-animation-direction="right"] {
+    transform: translateX(50px);
+}
+
+/* Tourism chart animation enhancement */
+.tourism-trend {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.tourism-trend.animate {
+    opacity: 1;
+    transform: scale(1);
+}
