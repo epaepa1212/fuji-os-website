@@ -3229,9 +3229,11 @@ textarea:focus,
 .header__logo-svg { height: 45px; width: auto; transition: opacity 0.3s ease; }
 .header__logo:hover .header__logo-svg { opacity: 0.8; }
 .footer__logo-svg { height: 60px; width: auto; margin-bottom: 1rem; }
-/* 移除SVG内嵌的文字 */
+/* Keep SVG logotype visible - matches reference design with FUJI (black) OS (red) text */
 .header__logo-svg #fuji-os-logotype,
-.footer__logo-svg #fuji-os-logotype { display: none; }
+.footer__logo-svg #fuji-os-logotype { 
+    /* Visible as per reference design */ 
+}
 
 /* --- Language Switcher Placeholder --- */
 .header__lang-switcher {
@@ -3371,6 +3373,77 @@ textarea:focus,
     transform: translateX(50px);
 }
 
+/* Ensure all detail content is hidden by default */
+.os-detail-content,
+.eco-go-detail-content,
+.anshin-detail-content,
+.avatars-detail-content,
+.navi-detail-content,
+.engine-detail-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin-top: 0;
+}
+
+.os-detail-content.active,
+.eco-go-detail-content.active,
+.anshin-detail-content.active,
+.avatars-detail-content.active,
+.navi-detail-content.active,
+.engine-detail-content.active {
+    max-height: 3000px;
+    opacity: 1;
+    overflow: visible;
+    margin-top: 2rem;
+}
+
+/* Expandable content smooth transitions */
+.expandable-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.expandable-content.active {
+    max-height: 2000px;
+    opacity: 1;
+    overflow: visible;
+}
+
+/* GIF Animation Placeholders */
+.gif-placeholder {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-primary);
+    color: var(--color-sumi-ink);
+    opacity: 0.7;
+    margin: 1rem 0;
+    border: 2px dashed rgba(52, 152, 219, 0.3);
+    position: relative;
+}
+
+.gif-placeholder::before {
+    content: '🎥 アニメーション領域';
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.gif-placeholder--large {
+    height: 300px;
+}
+
+.gif-placeholder--small {
+    height: 150px;
+}
+
 /* Tourism chart animation enhancement */
 .tourism-trend {
     opacity: 0;
@@ -3381,4 +3454,56 @@ textarea:focus,
 .tourism-trend.animate {
     opacity: 1;
     transform: scale(1);
+}
+
+/* Enhanced visual feedback for scroll progress */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 5px rgba(52, 152, 219, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(52, 152, 219, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(52, 152, 219, 0.3); }
+}
+
+.expander-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+    animation: pulseGlow 2s infinite;
+}
+
+/* Smooth scroll behavior for all elements */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improved focus states for accessibility */
+.expander-button:focus {
+    outline: 2px solid var(--color-fuji-blue);
+    outline-offset: 2px;
+}
+
+/* Loading state for GIF placeholders */
+.gif-placeholder.loading::before {
+    content: '🔄 読み込み中...';
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Responsive improvements for mobile */
+@media (max-width: 768px) {
+    .gif-placeholder {
+        height: 120px;
+        font-size: 0.9rem;
+    }
+    
+    .gif-placeholder--large {
+        height: 180px;
+    }
+    
+    .gif-placeholder--small {
+        height: 100px;
+    }
 }
