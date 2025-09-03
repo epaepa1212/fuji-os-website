@@ -3230,3 +3230,12 @@ textarea:focus,
         padding: 0.875rem 1.25rem;
     }
 }
+
+/* --- Logo SVG Styles --- */
+.header__logo { display: block; line-height: 0; }
+.header__logo-svg { height: 45px; width: auto; transition: opacity 0.3s ease; }
+.header__logo:hover .header__logo-svg { opacity: 0.8; }
+.footer__logo-svg { height: 60px; width: auto; margin-bottom: 1rem; }
+/* 移除SVG内嵌的文字 */
+.header__logo-svg #fuji-os-logotype,
+.footer__logo-svg #fuji-os-logotype { display: none; }
