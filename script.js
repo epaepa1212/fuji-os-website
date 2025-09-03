@@ -191,25 +191,22 @@ document.addEventListener('DOMContentLoaded', () => {
     setupExpander('naviDetailExpander', 'naviDetailContent');
     setupExpander('engineDetailExpander', 'engineDetailContent');
 
-    // --- Partnership form submission handling ---
-    const partnershipForm = document.getElementById('partnershipForm');
-    if (partnershipForm) {
-        partnershipForm.addEventListener('submit', (e) => {
+    // --- Contact form submission handling ---
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
             // Get form data
-            const formData = new FormData(partnershipForm);
+            const formData = new FormData(contactForm);
             const data = {
                 name: formData.get('name'),
-                company: formData.get('company'),
                 email: formData.get('email'),
-                phone: formData.get('phone'),
-                interest: formData.get('interest'),
                 message: formData.get('message')
             };
             
-            // Simulate form submission (in real project would send to server)
-            const submitButton = partnershipForm.querySelector('.form-button');
+            // Simulate form submission (in real project would send to server/backend)
+            const submitButton = contactForm.querySelector('.form-button');
             const originalText = submitButton.querySelector('.form-button__text').textContent;
             
             // Button state change
@@ -221,11 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitButton.querySelector('.form-button__text').textContent = '送信完了！';
                 
                 // Show success message
-                const message = 'お問い合わせありがとうございます！\n2-3営業日以内にご連絡させていただきます。';
+                const message = 'お問い合わせありがとうございます！\nメッセージを受信いたしました。お返事をお待ちください。';
                 alert(message);
                 
                 // Reset form
-                partnershipForm.reset();
+                contactForm.reset();
                 
                 // Restore button state
                 setTimeout(() => {
@@ -247,11 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
             downloadButton.style.pointerEvents = 'none';
             
             setTimeout(() => {
-                const message = '白書のダウンロードが開始されました。\n技術仕様と実装ロードマップをご確認ください。';
+                const message = 'プロジェクト資料の準備中です。\n詳細な資料については、上記のメールアドレスまでお問い合わせください。';
                 alert(message);
-                
-                // In real project, this would trigger actual file download
-                // window.open('/path/to/fuji-os-whitepaper.pdf', '_blank');
                 
                 // Restore button state
                 downloadButton.style.opacity = '1';

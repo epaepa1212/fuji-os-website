@@ -130,11 +130,10 @@ textarea:focus,
     align-items: center;
 }
 
+/* Legacy text logo styles - now replaced by SVG logo */
 .header__logo {
-    color: var(--color-fuji-blue);
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 700;
+    display: block;
+    line-height: 0;
 }
 
 .header__logo:focus {
@@ -3494,6 +3493,21 @@ html {
 
 /* Responsive improvements for mobile */
 @media (max-width: 768px) {
+    /* Mobile Logo Optimization */
+    .header__logo-svg {
+        height: 35px; /* Smaller on mobile for better fit */
+    }
+    
+    .footer__logo-svg {
+        height: 50px; /* Smaller footer logo on mobile */
+    }
+    
+    /* SVG logotype text scaling for mobile */
+    .header__logo-svg #fuji-os-logotype text,
+    .footer__logo-svg #fuji-os-logotype text {
+        font-size: 28px; /* Slightly smaller text on mobile */
+    }
+    
     .gif-placeholder {
         height: 120px;
         font-size: 0.9rem;
@@ -3506,4 +3520,51 @@ html {
     .gif-placeholder--small {
         height: 100px;
     }
+    
+    /* Contact methods mobile optimization */
+    .contact-methods {
+        padding: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .email-link {
+        display: inline-block;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Contact Methods Styling */
+.contact-methods {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--color-fuji-blue);
+}
+
+.contact-method h5 {
+    color: var(--color-fuji-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.contact-method p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.email-link {
+    color: var(--color-fuji-blue);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.email-link:hover {
+    background: var(--color-fuji-blue);
+    color: white;
+    transform: translateY(-1px);
 }

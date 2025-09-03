@@ -40,7 +40,7 @@
     </nav>
 
     <main>
-        <!-- [第1画面] Hero Section -->
+        <!-- [セクション1] Hero Section -->
         <section class="hero-section">
             <div class="hero-section__container">
                 <h1 class="hero-section__title">Fuji OS</h1>
@@ -59,7 +59,7 @@
             </div>
         </section>
 
-        <!-- [第2画面] Preface Section -->
+        <!-- [セクション2] Preface Section -->
         <section class="preface-section animated-section" data-animation-direction="left">
             <div class="preface-section__container">
                 <div class="preface-section__header">
@@ -85,7 +85,7 @@
                                     <div class="data-point" data-year="2021">7%</div>
                                     <div class="data-point" data-year="2022">15%</div>
                                     <div class="data-point" data-year="2023">65%</div>
-                                    <div class="data-point" data-year="2024">142%</div>
+                                    <div class="data-point" data-year="2025">158%</div>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
             </div>
         </section>
 
-        <!-- [第3画面] OS Introduction -->
+        <!-- [セクション3] OS Introduction -->
         <section class="os-section animated-section" data-animation-direction="right">
             <div class="os-section__container">
                 <div class="os-section__header">
@@ -187,7 +187,7 @@
             </div>
         </section>
 
-        <!-- [第4画面] Eco-Go Pillar -->
+        <!-- [セクション4] Eco-Go Pillar -->
         <section class="pillar-section pillar-section--eco-go animated-section" data-animation-direction="left">
             <div class="pillar-section__container">
                 <div class="pillar-section__visual" id="ecoGoVisual">
@@ -267,7 +267,7 @@
             </div>
         </section>
 
-        <!-- [第5画面] Anshin Pillar -->
+        <!-- [セクション5] Anshin Pillar -->
         <section class="pillar-section pillar-section--anshin animated-section" data-animation-direction="right">
             <div class="pillar-section__container">
                 <div class="pillar-section__content">
@@ -354,7 +354,7 @@
             </div>
         </section>
 
-        <!-- [第6画面] Yama-Avatars Pillar -->
+        <!-- [セクション6] Yama-Avatars Pillar -->
         <section class="pillar-section pillar-section--avatars animated-section" data-animation-direction="left">
             <div class="pillar-section__container">
                 <div class="pillar-section__visual">
@@ -486,7 +486,7 @@
             </div>
         </section>
 
-        <!-- [第7画面] Yama-Navi Pillar -->
+        <!-- [セクション7] Yama-Navi Pillar -->
         <section class="pillar-section pillar-section--navi animated-section" data-animation-direction="right">
             <div class="pillar-section__container">
                 <div class="pillar-section__content">
@@ -587,7 +587,7 @@
             </div>
         </section>
 
-        <!-- [第8画面] 经济引擎章节 -->
+        <!-- [セクション8] 経済エンジン -->
         <section class="engine-section animated-section" data-animation-direction="left">
             <div class="engine-section__container">
                 <div class="engine-section__header">
@@ -693,7 +693,7 @@
             </div>
         </section>
 
-        <!-- [第9屏] 未来への共創パートナーシップ -->
+        <!-- [セクション9] 未来への共創パートナーシップ -->
         <section class="partnership-section animated-section" data-animation-direction="right">
             <div class="partnership-section__container">
                 <!-- 上半部分：标题和邀请陈词 -->
@@ -744,58 +744,46 @@
                     </div>
                 </div>
 
-                <!-- 下半部分：联系表单 -->
+                <!-- お問い合わせセクション -->
                 <div class="partnership-section__contact">
                     <div class="contact-form-container">
-                        <h4 class="contact-form__title">共創パートナー登録</h4>
-                        <p class="contact-form__description">Fuji OSプロジェクトへの参画にご興味をお持ちの方は、こちらのフォームからお気軽にお問い合わせください。</p>
+                        <h4 class="contact-form__title">お問い合わせ</h4>
+                        <p class="contact-form__description">Fuji OSプロジェクトに関するご質問やご意見がございましたら、お気軽にお問い合わせください。</p>
                         
-                        <form class="contact-form" id="partnershipForm">
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <h5>メールでのお問い合わせ</h5>
+                                <p><strong>Email:</strong> <a href="mailto:mrhardcandyj@gmail.com" class="email-link">mrhardcandyj@gmail.com</a></p>
+                                <p>直接メールをお送りいただくか、下記フォームからメッセージをお送りください。</p>
+                            </div>
+                        </div>
+                        
+                        <form class="contact-form" id="contactForm">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="partnerName" class="form-label">お名前 <span class="form-required">*</span></label>
-                                    <input type="text" id="partnerName" name="name" class="form-input" required>
+                                    <label for="userName" class="form-label">お名前 <span class="form-required">*</span></label>
+                                    <input type="text" id="userName" name="name" class="form-input" required>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="partnerCompany" class="form-label">所属組織</label>
-                                    <input type="text" id="partnerCompany" name="company" class="form-input">
-                                </div>
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="partnerEmail" class="form-label">メールアドレス <span class="form-required">*</span></label>
-                                    <input type="email" id="partnerEmail" name="email" class="form-input" required>
+                                    <label for="userEmail" class="form-label">メールアドレス <span class="form-required">*</span></label>
+                                    <input type="email" id="userEmail" name="email" class="form-input" required>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="partnerPhone" class="form-label">電話番号</label>
-                                    <input type="tel" id="partnerPhone" name="phone" class="form-input">
-                                </div>
                             </div>
                             
-                            <div class="form-group form-group--full">
-                                <label for="partnerInterest" class="form-label">協力分野</label>
-                                <select id="partnerInterest" name="interest" class="form-select">
-                                    <option value="">選択してください</option>
-                                    <option value="government">政府機関・自治体</option>
-                                    <option value="enterprise">企業パートナー</option>
-                                    <option value="community">地域コミュニティ</option>
-                                    <option value="technology">技術開発・研究</option>
-                                    <option value="investment">投資・資金調達</option>
-                                    <option value="other">その他</option>
-                                </select>
-                            </div>
                             
                             <div class="form-group form-group--full">
-                                <label for="partnerMessage" class="form-label">メッセージ <span class="form-required">*</span></label>
-                                <textarea id="partnerMessage" name="message" class="form-textarea" rows="4" placeholder="メッセージ" required></textarea>
+                                <label for="userMessage" class="form-label">メッセージ <span class="form-required">*</span></label>
+                                <textarea id="userMessage" name="message" class="form-textarea" rows="5" placeholder="ご質問やご意見をお聞かせください" required></textarea>
                             </div>
                             
                             <div class="form-submit">
                                 <button type="submit" class="form-button">
-                                    <span class="form-button__text">共創への一歩を踏み出す</span>
+                                    <span class="form-button__text">メッセージを送信</span>
                                     <svg class="form-button__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="送信矢印">
                                         <path d="M5 12h14M12 5l7 7-7 7"/>
                                     </svg>
@@ -837,7 +825,7 @@
             </div>
             
             <div class="footer__bottom">
-                <p class="footer__copyright">© 2024 Fuji OS Project. All rights reserved.</p>
+                <p class="footer__copyright">© 2025 Fuji OS Project. All rights reserved.</p>
                 <p class="footer__note">本プロジェクトは山梨県の持続可能な発展を支援する技術実証です。</p>
             </div>
         </div>
