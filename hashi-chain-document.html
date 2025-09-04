@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashi Chain蓝图：为Bittensor构建主权金融层</title>
+    <style>
+        /* PDF专用样式 */
+        @media print {
+            @page {
+                size: A4;
+                margin: 25mm 20mm;
+                @top-center {
+                    content: "Hashi Chain蓝图：为Bittensor构建主权金融层";
+                    font-size: 9px;
+                    color: #888;
+                }
+                @bottom-center {
+                    content: "页 " counter(page);
+                    font-size: 9px;
+                    color: #888;
+                }
+            }
+            
+            @page :first {
+                margin-top: 35mm;
+                @top-center {
+                    content: none;
+                }
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            body {
+                font-size: 12px;
+                line-height: 1.5;
+                color: #333;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .no-break {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Sans', 'Noto Sans CJK SC', 'Yu Gothic', 'Meiryo', 'MS PGothic', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 标题样式 */
+        .document-header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid #E53E3E;
+            padding-bottom: 30px;
+            padding-top: 20px;
+        }
+        
+        @media print {
+            .document-header {
+                margin-bottom: 60px;
+                padding-top: 0;
+            }
+        }
+        
+        .logo-container {
+            margin-bottom: 40px;
+        }
+        
+        @media print {
+            .logo-container {
+                margin-bottom: 35mm;
+            }
+        }
+        
+        .logo-img {
+            width: 360px;
+            height: auto;
+        }
+        
+        @media print {
+            .logo-img {
+                width: 320px;
+            }
+        }
+        
+        .document-subtitle {
+            font-size: 18px;
+            color: #E53E3E;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        @media print {
+            .document-subtitle {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+        }
+        
+        .document-date {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        @media print {
+            .document-date {
+                font-size: 12px;
+            }
+        }
+        
+        /* 章节样式 */
+        .chapter {
+            margin-bottom: 45px;
+        }
+        
+        @media print {
+            .chapter {
+                margin-bottom: 35mm;
+            }
+        }
+        
+        .chapter-header {
+            background: linear-gradient(135deg, #222 0%, #444 100%);
+            color: white;
+            padding: 18px 25px;
+            margin-bottom: 25mm;
+            border-left: 5px solid #E53E3E;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        @media print {
+            .chapter-header {
+                padding: 15px 20px;
+                margin-bottom: 20mm;
+                box-shadow: none;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        .chapter-number {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .chapter-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 5px;
+            line-height: 1.3;
+        }
+        
+        @media print {
+            .chapter-title {
+                font-size: 20px;
+            }
+        }
+        
+        .chapter-tagline {
+            font-size: 14px;
+            font-style: italic;
+            color: #E53E3E;
+            margin-top: 5px;
+        }
+        
+        /* 内容样式 */
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #222;
+            margin: 30mm 0 20mm 0;
+            padding-left: 15px;
+            border-left: 3px solid #E53E3E;
+            background: linear-gradient(90deg, rgba(229, 62, 62, 0.1) 0%, rgba(229, 62, 62, 0) 100%);
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        
+        @media print {
+            .section-title {
+                margin: 25mm 0 15mm 0;
+                page-break-after: avoid;
+            }
+        }
+        
+        .subsection-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 25mm 0 15mm 0;
+        }
+        
+        @media print {
+            .subsection-title {
+                margin: 20mm 0 10mm 0;
+                page-break-after: avoid;
+            }
+        }
+        
+        .content-paragraph {
+            margin-bottom: 18mm;
+            text-align: justify;
+            text-justify: inter-character;
+            line-height: 1.6;
+        }
+        
+        @media print {
+            .content-paragraph {
+                margin-bottom: 15mm;
+                line-height: 1.5;
+            }
+        }
+        
+        .highlight-text {
+            background: linear-gradient(120deg, #FFEBEE 0%, #FFCDD2 100%);
+            padding: 2px 4px;
+            font-weight: 600;
+            color: #B71C1C;
+        }
+        
+        .important-quote {
+            background: #f8f8f8;
+            border-left: 4px solid #E53E3E;
+            padding: 18px 25px;
+            margin: 25mm 0;
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        @media print {
+            .important-quote {
+                margin: 20mm 0;
+                padding: 15px 20px;
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* 列表样式 */
+        .feature-list {
+            list-style: none;
+            margin: 20mm 0;
+        }
+        
+        @media print {
+            .feature-list {
+                margin: 15mm 0;
+            }
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        @media print {
+            .feature-list li {
+                padding: 8px 0;
+                break-inside: avoid;
+            }
+        }
+        
+        .feature-list li:before {
+            content: "";
+            color: #E53E3E;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* 图标文本样式 */
+        .icon-text {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .icon-text:before {
+            content: "▶";
+            font-size: 14px;
+            color: #E53E3E;
+        }
+        
+        .icon-text.bridge:before {
+            content: "◆";
+        }
+        
+        .icon-text.technical:before {
+            content: "▲";
+        }
+        
+        .icon-text.economic:before {
+            content: "◉";
+        }
+        
+        /* 代码块样式 */
+        .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            margin: 20mm 0;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+        
+        @media print {
+            .code-block {
+                margin: 15mm 0;
+                padding: 15px;
+                font-size: 10px;
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* 页眉页脚样式 */
+        .page-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* 打印优化 */
+        @media print {
+            .chapter {
+                page-break-inside: avoid;
+            }
+            
+            .section-title {
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+            }
+            
+            .subsection-title {
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+            }
+            
+            .feature-list {
+                page-break-inside: avoid;
+            }
+            
+            .important-quote {
+                page-break-inside: avoid;
+            }
+            
+            .code-block {
+                page-break-inside: avoid;
+            }
+            
+            /* 孤立行处理 */
+            p, .content-paragraph {
+                orphans: 2;
+                widows: 2;
+            }
+        }
+        
+        /* 特殊强调样式 */
+        .emphasis-box {
+            background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+            border: 2px solid #E53E3E;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25mm 0;
+        }
+        
+        @media print {
+            .emphasis-box {
+                margin: 20mm 0;
+                page-break-inside: avoid;
+            }
+        }
+        
+        .hashi-meaning {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 15px;
+            align-items: flex-start;
+            margin: 15px 0;
+        }
+        
+        .hashi-symbol {
+            font-size: 24px;
+            font-weight: bold;
+            color: #E53E3E;
+            text-align: center;
+            min-width: 40px;
+        }
+        
+        .hashi-content {
+            line-height: 1.5;
+        }
+        
+        .hashi-title {
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 文档标题页 -->
+    <div class="document-header no-break">
+        <div class="logo-container">
+            <img src="./hashi-logo.png" class="logo-img" alt="Hashi Chain Logo">
+        </div>
+        <h2 class="document-subtitle">为 Bittensor 构建主权金融层</h2>
+        <div class="document-date">Asiatensor | 2025年</div>
+    </div>
+    
+    <div class="title-page-break" style="page-break-after: always; height: 0;"></div>
+
+    <!-- 开篇：Hashi的三重奏 -->
+    <div class="chapter no-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[开篇]</div>
+            <h2 class="chapter-title">Hashi的三重奏</h2>
+            <div class="chapter-tagline">我们的使命、哲学与根基</div>
+        </div>
+        
+        <div class="content-paragraph">
+            项目名称<span class="highlight-text">"Hashi"</span>并非一个随意的选择，而是一个经过深思熟虑、蕴含多重深刻含义的品牌符号。它源自日语中的"はし"，一个单词同时拥有"桥"与"箸（筷子）"两种写法和含义，并且其发音与区块链的核心技术"哈希"近似。这三个层面完美地诠释了我们的使命、哲学与技术根基。
+        </div>
+
+        <div class="emphasis-box">
+            <div class="hashi-meaning">
+                <div class="hashi-symbol">橋</div>
+                <div class="hashi-content">
+                    <div class="hashi-title">Hashi - 桥梁 [我们的使命]</div>
+                    我们的根本使命是为 Bittensor 生态系统建造一座至关重要的技术之桥、流动性之桥、未来之桥，成为其不可或缺的基础设施建设者与核心连接器。
+                </div>
+            </div>
+            
+            <div class="hashi-meaning">
+                <div class="hashi-symbol">箸</div>
+                <div class="hashi-content">
+                    <div class="hashi-title">Hashi - 筷子 [我们的哲学]</div>
+                    如果说"桥"是我们的宏伟蓝图，那么"箸"则代表了我们实现这一蓝图的方式——精准、高效、协作、平衡。它定义了我们的品格：我们是精准、高效、协作且独树一帜的生态赋能者。
+                </div>
+            </div>
+            
+            <div class="hashi-meaning">
+                <div class="hashi-symbol">ハッシュ</div>
+                <div class="hashi-content">
+                    <div class="hashi-title">Hasshu - 哈希 [我们的根基]</div>
+                    我们根植于区块链的原生精神，以安全、可靠、去信任化的技术作为我们不可动摇的基础。
+                </div>
+            </div>
+        </div>
+
+        <div class="important-quote">
+            我们的愿景始终如一：成为 Bittensor 生态系统的主权金融层 (The Sovereign Financial Layer)，释放其千亿市值的流动性潜力，成为推动 Bittensor 迈向下一个增长阶段的核心引擎。
+        </div>
+    </div>
+
+    <!-- 第一章：技术架构 -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[第一章]</div>
+            <h2 class="chapter-title">技术架构：一个根植于 Bittensor 的三位一体系统</h2>
+            <div class="chapter-tagline">激励、执行与共识的分离</div>
+        </div>
+        
+        <div class="content-paragraph">
+            Hashi Chain 采用三层模块化架构，实现了激励、执行与共识的分离。这种设计确保了系统在去中心化、高性能与安全性之间达到最佳平衡，并完全根植于 Bittensor 的原生哲学之中。
+        </div>
+        
+        <div class="section-title">1.1 激励层 (Incentive Layer): The Hashi Chain Subnet</div>
+        
+        <div class="content-paragraph">
+            我们并非创造新的、孤立的经济系统，而是严格遵循并利用 Bittensor 强大的原生激励模型，来保障我们整个网络的基础设施。
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text technical">核心机制</span>：这是一个基于 <span class="highlight-text">Yuma 共识</span> 的系统。我们的子网作为 Bittensor 主网的一部分，专注于一个特定的任务：评估和奖励那些为 Hashi Chain Layer 1 网络提供计算和验证服务的参与者。</li>
+            <li><span class="icon-text technical">矿工 (Miners)</span>：其核心工作是运行高性能、数据一致的 Hashi Chain Layer 1 EVM 全节点，为整个生态提供可靠的、可验证的AI计算和存储服务。</li>
+            <li><span class="icon-text technical">验证者 (Validators)</span>：持续地、匿名地对矿工节点的服务质量（如响应速度、数据准确性、在线时长）进行监控、测试和评分。</li>
+            <li><span class="icon-text economic">激励来源</span>：Bittensor 主网根据验证者的评分，每区块将 TAO 奖励分配给我们的子网。子网也会根据 Yuma 共识，将我们的原生代币 dTAO_Hashi 分发给矿工和验证者。</li>
+        </ul>
+        
+        <div class="section-title">1.2 执行层 (Execution Layer): The Hashi Chain Layer 1</div>
+        
+        <div class="content-paragraph">
+            这是所有金融活动发生的地方，一个对开发者和用户都极其友好的高性能区块链。这是一个独立的 Layer，而不是一个 Rollup，这是本次方案的<span class="highlight-text">核心战略定位</span>。
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text technical">战略定位</span>：Bittensor主网提供了我们需要的去中心化和安全性，而作为一个独立的 Layer 1，我们可以完全控制区块时间、吞吐量和交易费用，这为实现类似 Solana 的高频、主动式 AMM 提供了坚实的技术基础，这是任何 Layer 2 EVM方案都无法比拟的。</li>
+            <li><span class="icon-text technical">技术栈</span>：我们将基于成熟的 Layer 1 技术栈（参考 Cosmos SDK 和 Substrate）并整合 EVM 兼容层来构建。</li>
+            <li><span class="icon-text bridge">对开发者</span>：任何现有的以太坊 DeFi 应用（如 Uniswap, Aave 等）的开发者，都可以无缝地、无需修改代码地将其智能合约部署到 Hashi Chain 上。</li>
+            <li><span class="icon-text bridge">对用户</span>：用户将享受极低的 Gas 费、秒级的交易确认速度，以及熟悉的钱包体验（如 MetaMask）。</li>
+        </ul>
+        
+        <div class="section-title">1.3 共识层 (Consensus Layer): The Validation Committee</div>
+        
+        <div class="content-paragraph">
+            为在去中心化和性能之间取得最佳平衡，我们采用了一个务实的、<span class="highlight-text">"多中心化"</span>的共识方案，该方案的安全性完全来源于 Bittensor 生态的社会经济博弈。
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text technical">组成</span>：由 Hashi Chain 子网中的根网验证者 (Root Validators) 和子网所有者（我们）共同组成一个"验证委员会"。</li>
+            <li><span class="icon-text technical">职责</span>：该委员会负责对 Hashi Chain Layer 1 上的交易进行排序，并将交易数据打包成区块。</li>
+            <li><span class="icon-text economic">安全保障</span>：这是一个基于<span class="highlight-text">"社会共识 (Social Consensus)"</span>的安全模型。委员会的成员都是在 Bittensor 生态中投入了巨大经济成本（在根网质押了大量 TAO）的核心利益相关者，他们作恶的成本远高于潜在收益，因此具备高度的可信性。</li>
+        </ul>
+    </div>
+
+    <!-- 第二章：核心模块与经济飞轮 -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[第二章]</div>
+            <h2 class="chapter-title">核心模块与经济飞轮</h2>
+            <div class="chapter-tagline">流动性桥梁与价值捕获机制</div>
+        </div>
+        
+        <div class="section-title">2.1 流动性之桥 (The Hashi): sTAO</div>
+        
+        <div class="content-paragraph">
+            它依然是连接 Bittensor 主网与 Hashi Chain 的命脉。我们采用多中心化托管和自动质押机制，确保<span class="highlight-text">1 sTAO 永远等于1 TAO</span>。所有进入我们生态的 TAO，都在同时享受"主网 Staking 收益"和"链上 DeFi 收益"，实现资本效率最大化。
+        </div>
+        
+        <div class="section-title">2.2 经济飞轮模型 (The Economic Flywheel)</div>
+        
+        <div class="content-paragraph">
+            该模型的核心逻辑即是在一个性能强大的 Layer 1 网络上运行，持续捕获价值。
+        </div>
+        
+        <div class="code-block">
+经济飞轮运作机制：
+
+1. Gas Fee in sTAO
+   └─ Hashi Chain Layer 1 上的所有交易手续费均使用 sTAO 支付
+   └─ 为 TAO 创造了全新的、持续性的核心应用场景
+
+2. 协议收入
+   └─ 协议财库统一收集手续费
+
+3. 回购销毁
+   └─ 协议财库将大部分收入通过智能合约
+   └─ 在 Layer 1 上的 DEX 上自动、持续地回购并销毁 dTAO_Hashi
+   └─ 形成强大的通缩预期和价值支撑
+        </div>
+    </div>
+
+    <!-- 第三章：核心创新 -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[第三章]</div>
+            <h2 class="chapter-title">核心创新：为 Bittensor 定制的金融原语</h2>
+            <div class="chapter-tagline">AI驱动的AMM与稳定币系统</div>
+        </div>
+        
+        <div class="section-title">3.1 新一代 AMM：以 Solana 模式赋能 Bittensor</div>
+        
+        <div class="content-paragraph">
+            这是该Layer 1规划中的一个核心考虑。我们将构建一个完全不同于传统 Uniswap 模型的 AMM 体系，它汲取了在 Solana 生态中得到成功验证的专有 AMM 设计精髓，成为Bittensor主网中dTAO的Uniswap交易模式的补充和优化。
+        </div>
+        
+        <div class="subsection-title">核心理念</div>
+        <div class="content-paragraph">
+            从<span class="highlight-text">"被动流动性池"</span>转向<span class="highlight-text">"AI主动式链上做市"</span>。参考Solana上的PMM模式，我们的 AMM 不依赖于散户 LP，而是由专业的、程序化的做市AI策略驱动。
+        </div>
+        
+        <div class="subsection-title">技术实现</div>
+        <ul class="feature-list">
+            <li><span class="icon-text technical">外部价格驱动</span>：我们的 AMM 不会仅根据池内代币比例定价，而是通过AI根据Bittensor的生态规则及用户的行为数据模拟价格，并据此调整报价，为用户提供极小的点差和滑点。</li>
+            <li><span class="icon-text technical">高频报价</span>：得益于我们 Layer 1 的极低 Gas 费和秒级终局性，做市商可以不计成本地进行高频报价，这为用户带来了前所未有的交易执行效率和更好的交易价格。</li>
+        </ul>
+        
+        <div class="section-title">3.2 DBAI：真正由 AI 驱动的去中心化稳定币</div>
+        
+        <div class="content-paragraph">
+            我们将推出 DBAI，一个独特的、由 Bittensor 质押收益作为底层抵押物、并由 Yuma 共识保障其稳定性的 AI 驱动型稳定币。
+        </div>
+        
+        <div class="important-quote">
+            命名：我们选择"DBAI"这个名称，旨在向 MakerDAO 的 DAI 致敬，DAI 是 DeFi 领域最成功、最受尊敬的去中心化稳定币之一。DBAI 旨在继承其去中心化精神，并将其应用于 AI 经济。
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text economic">底层抵押物</span>：DBAI 的核心抵押物是用户委托给 Hashi Chain 验证者节点的 TAO 及其产生的多子网验证者收益分成。这是一种比普通加密资产更稳健的底层资产，因为它与实体 AI 产业的价值创造紧密挂钩。</li>
+        </ul>
+        
+        <div class="subsection-title">AI 稳定机制 (基于 Yuma 共识)</div>
+        <div class="content-paragraph">
+            DBAI 的稳定性由一个创新的、根植于 Bittensor 的三层机制保障：
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text technical">动态超额抵押</span>：我们将在计算sTAO价值时，实时监控 TAO 的波动性并提交最优抵押率建议。验证体系在检测Layer 1节点运行的同时，通过 Yuma 共识 对矿工节点的反馈进行评估和加权，最终得出一个Layer 1全网共识的、动态调整的抵押率，从而在规避风险的同时最大化资本效率。</li>
+            <li><span class="icon-text technical">专有 AMM 流动性引擎</span>：DBAI 与我们的 PMM 深度集成。AI 算法将直接管理 AMM 的报价策略，确保 DBAI 交易始终拥有极小的滑点和深度流动性。</li>
+            <li><span class="icon-text economic">协议控制的激励池</span>：协议拥有一个由 dTAO_Hashi 驱动的激励池，用于在市场出现极端波动时，快速回购 DBAI 以维持其锚定。</li>
+        </ul>
+    </div>
+
+    <!-- 第四章：商业模式与市场进入策略 -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[第四章]</div>
+            <h2 class="chapter-title">商业模式与市场进入策略</h2>
+            <div class="chapter-tagline">赋能生态即是最好的商业模式</div>
+        </div>
+        
+        <div class="content-paragraph">
+            我们的核心理念不变：通过为整个 Bittensor 生态系统提供至关重要的<span class="highlight-text">"正外部性"</span>来间接获利。我们坚信，赋能生态即是最好的商业模式。
+        </div>
+        
+        <div class="section-title">收入来源</div>
+        <div class="content-paragraph">
+            我们的多元化收入将包括：
+        </div>
+        <ul class="feature-list">
+            <li><span class="icon-text economic">Gas Fee</span>：Hashi Chain Layer 1 网络的交易手续费</li>
+            <li><span class="icon-text economic">DeFi 协议服务费</span>：AMM交易费、借贷协议手续费等</li>
+            <li><span class="icon-text economic">跨链桥手续费</span>：sTAO跨链桥接服务费用</li>
+            <li><span class="icon-text economic">验证者节点收益分成</span>：我们的验证者节点所获得的 TAO 质押收益分成</li>
+        </ul>
+        
+        <div class="section-title">市场进入策略</div>
+        <div class="content-paragraph">
+            我们将分阶段进入市场：
+        </div>
+        <ul class="feature-list">
+            <li><span class="icon-text bridge">第一阶段</span>：成为所有 Bittensor 子网进行初始流动性引导的首选和唯一平台</li>
+            <li><span class="icon-text bridge">第二阶段</span>：打通与更多主流 EVM 生态的跨链桥，成为<span class="highlight-text">"Bittensor的链之桥"</span></li>
+            <li><span class="icon-text bridge">第三阶段</span>：通过极致的透明度，建立不可动摇的市场信任</li>
+        </ul>
+    </div>
+
+    <!-- 结论 -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[结论]</div>
+            <h2 class="chapter-title">一个无可复制的优势</h2>
+            <div class="chapter-tagline">通往未来的桥梁</div>
+        </div>
+        
+        <div class="content-paragraph">
+            Hashi Chain 不仅仅是一个 Layer 1 网络，它更是 Bittensor 经济体缺失的金融<span class="highlight-text">"操作系统"</span>。我们正处在一个完美的交汇点上，将 Bittensor 的 AI 激励层、高性能 Layer 1 和专有 AMM 这三大独特优势完美结合，构建了一个前所未有的去中心化金融基础设施。
+        </div>
+        
+        <div class="important-quote">
+            我们诚邀更多建设者加入 Hashi Chain，共同建造这座通往未来的桥梁，释放 Bittensor 生态系统的全部潜力，并在这个过程中，捕获一个时代级的价值机会。
+        </div>
+        
+        <div class="emphasis-box">
+            <div class="content-paragraph" style="text-align: center; font-size: 18px; font-weight: bold; color: #E53E3E; margin-bottom: 0;">
+                共建 Hashi Chain，共创 Bittensor 的未来
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="page-footer">
+        <div>Hashi Chain蓝图：为Bittensor构建主权金融层</div>
+        <div>Asiatensor | 2025年</div>
+        <div>© 2025 Asiatensor Foundation. All rights reserved.</div>
+    </div>
+</body>
+</html>

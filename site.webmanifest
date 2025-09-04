@@ -1,0 +1,16 @@
+{
+    "name": "Fuji OS - 山梨県デジタル変革オペレーティングシステム",
+    "short_name": "Fuji OS",
+    "description": "山梨県のデジタル化未来を実装するOS",
+    "icons": [
+        {
+            "src": "./logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#CC0000",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "./"
+}

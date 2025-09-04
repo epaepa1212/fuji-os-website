@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashi Chain Blueprint: Building the Sovereign Financial Layer for Bittensor</title>
+    <style>
+        /* PDF-specific styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 25mm 20mm;
+                @top-center {
+                    content: "Hashi Chain Blueprint: Building the Sovereign Financial Layer for Bittensor";
+                    font-size: 9px;
+                    color: #888;
+                }
+                @bottom-center {
+                    content: "Page " counter(page);
+                    font-size: 9px;
+                    color: #888;
+                }
+            }
+            
+            @page :first {
+                margin-top: 35mm;
+                @top-center {
+                    content: none;
+                }
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            body {
+                font-size: 12px;
+                line-height: 1.5;
+                color: #333;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .no-break {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', 'Arial', 'Segoe UI', 'Roboto', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        .document-header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid #E53E3E;
+            padding-bottom: 30px;
+            padding-top: 20px;
+        }
+        
+        @media print {
+            .document-header {
+                margin-bottom: 60px;
+                padding-top: 0;
+            }
+        }
+        
+        .logo-container {
+            margin-bottom: 40px;
+        }
+        
+        @media print {
+            .logo-container {
+                margin-bottom: 35mm;
+            }
+        }
+        
+        .logo-img {
+            width: 360px;
+            height: auto;
+        }
+        
+        @media print {
+            .logo-img {
+                width: 320px;
+            }
+        }
+        
+        .document-subtitle {
+            font-size: 18px;
+            color: #E53E3E;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        @media print {
+            .document-subtitle {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+        }
+        
+        .document-date {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        @media print {
+            .document-date {
+                font-size: 12px;
+            }
+        }
+        
+        /* Chapter styles */
+        .chapter {
+            margin-bottom: 45px;
+        }
+        
+        @media print {
+            .chapter {
+                margin-bottom: 35mm;
+            }
+        }
+        
+        .chapter-header {
+            background: linear-gradient(135deg, #222 0%, #444 100%);
+            color: white;
+            padding: 18px 25px;
+            margin-bottom: 25mm;
+            border-left: 5px solid #E53E3E;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        @media print {
+            .chapter-header {
+                padding: 15px 20px;
+                margin-bottom: 20mm;
+                box-shadow: none;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        .chapter-number {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .chapter-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 5px;
+            line-height: 1.3;
+        }
+        
+        @media print {
+            .chapter-title {
+                font-size: 20px;
+            }
+        }
+        
+        .chapter-tagline {
+            font-size: 14px;
+            font-style: italic;
+            color: #E53E3E;
+            margin-top: 5px;
+        }
+        
+        /* Content styles */
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #222;
+            margin: 30mm 0 20mm 0;
+            padding-left: 15px;
+            border-left: 3px solid #E53E3E;
+            background: linear-gradient(90deg, rgba(229, 62, 62, 0.1) 0%, rgba(229, 62, 62, 0) 100%);
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        
+        @media print {
+            .section-title {
+                margin: 25mm 0 15mm 0;
+                page-break-after: avoid;
+            }
+        }
+        
+        .subsection-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 25mm 0 15mm 0;
+        }
+        
+        @media print {
+            .subsection-title {
+                margin: 20mm 0 10mm 0;
+                page-break-after: avoid;
+            }
+        }
+        
+        .content-paragraph {
+            margin-bottom: 18mm;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        
+        @media print {
+            .content-paragraph {
+                margin-bottom: 15mm;
+                line-height: 1.5;
+            }
+        }
+        
+        .highlight-text {
+            background: linear-gradient(120deg, #FFEBEE 0%, #FFCDD2 100%);
+            padding: 2px 4px;
+            font-weight: 600;
+            color: #B71C1C;
+        }
+        
+        .important-quote {
+            background: #f8f8f8;
+            border-left: 4px solid #E53E3E;
+            padding: 18px 25px;
+            margin: 25mm 0;
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        @media print {
+            .important-quote {
+                margin: 20mm 0;
+                padding: 15px 20px;
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* List styles */
+        .feature-list {
+            list-style: none;
+            margin: 20mm 0;
+        }
+        
+        @media print {
+            .feature-list {
+                margin: 15mm 0;
+            }
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        @media print {
+            .feature-list li {
+                padding: 8px 0;
+                break-inside: avoid;
+            }
+        }
+        
+        .feature-list li:before {
+            content: "";
+            color: #E53E3E;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Icon text styles */
+        .icon-text {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .icon-text:before {
+            content: "▶";
+            font-size: 14px;
+            color: #E53E3E;
+        }
+        
+        .icon-text.bridge:before {
+            content: "◆";
+        }
+        
+        .icon-text.technical:before {
+            content: "▲";
+        }
+        
+        .icon-text.economic:before {
+            content: "◉";
+        }
+        
+        /* Code block styles */
+        .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            margin: 20mm 0;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+        
+        @media print {
+            .code-block {
+                margin: 15mm 0;
+                padding: 15px;
+                font-size: 10px;
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Footer styles */
+        .page-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Print optimization */
+        @media print {
+            .chapter {
+                page-break-inside: avoid;
+            }
+            
+            .section-title {
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+            }
+            
+            .subsection-title {
+                page-break-after: avoid;
+                orphans: 2;
+                widows: 2;
+            }
+            
+            .feature-list {
+                page-break-inside: avoid;
+            }
+            
+            .important-quote {
+                page-break-inside: avoid;
+            }
+            
+            .code-block {
+                page-break-inside: avoid;
+            }
+            
+            /* Orphan handling */
+            p, .content-paragraph {
+                orphans: 2;
+                widows: 2;
+            }
+        }
+        
+        /* Special emphasis styles */
+        .emphasis-box {
+            background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+            border: 2px solid #E53E3E;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25mm 0;
+        }
+        
+        @media print {
+            .emphasis-box {
+                margin: 20mm 0;
+                page-break-inside: avoid;
+            }
+        }
+        
+        .hashi-meaning {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 15px;
+            align-items: flex-start;
+            margin: 15px 0;
+        }
+        
+        .hashi-symbol {
+            font-size: 24px;
+            font-weight: bold;
+            color: #E53E3E;
+            text-align: center;
+            min-width: 40px;
+        }
+        
+        .hashi-content {
+            line-height: 1.5;
+        }
+        
+        .hashi-title {
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Document Title Page -->
+    <div class="document-header no-break">
+        <div class="logo-container">
+            <img src="./hashi-logo.png" class="logo-img" alt="Hashi Chain Logo">
+        </div>
+        <h2 class="document-subtitle">Building the Sovereign Financial Layer for Bittensor</h2>
+        <div class="document-date">Asiatensor | 2025</div>
+    </div>
+    
+    <div class="title-page-break" style="page-break-after: always; height: 0;"></div>
+
+    <!-- Prologue: The Hashi Trinity -->
+    <div class="chapter no-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[PROLOGUE]</div>
+            <h2 class="chapter-title">The Hashi Trinity</h2>
+            <div class="chapter-tagline">Our Mission, Philosophy & Foundation</div>
+        </div>
+        
+        <div class="content-paragraph">
+            The project name <span class="highlight-text">"Hashi"</span> is not a random choice, but a carefully considered brand symbol embodying multiple profound meanings. It originates from the Japanese "はし," a word that simultaneously encompasses two different writings and meanings: "bridge" and "chopsticks," while its pronunciation closely resembles "hash," the core technology of blockchain. These three dimensions perfectly interpret our mission, philosophy, and technical foundation.
+        </div>
+
+        <div class="emphasis-box">
+            <div class="hashi-meaning">
+                <div class="hashi-symbol">橋</div>
+                <div class="hashi-content">
+                    <div class="hashi-title">Hashi - Bridge [Our Mission]</div>
+                    Our fundamental mission is to build a vital technological bridge, liquidity bridge, and future bridge for the Bittensor ecosystem, becoming its indispensable infrastructure builder and core connector.
+                </div>
+            </div>
+            
+            <div class="hashi-meaning">
+                <div class="hashi-symbol">箸</div>
+                <div class="hashi-content">
+                    <div class="hashi-title">Hashi - Chopsticks [Our Philosophy]</div>
+                    If "bridge" represents our grand blueprint, then "chopsticks" embodies the way we realize this blueprint—precision, efficiency, collaboration, and balance. It defines our character: we are precise, efficient, collaborative, and unique ecosystem enablers.
+                </div>
+            </div>
+            
+            <div class="hashi-meaning">
+                <div class="hashi-symbol">ハッシュ</div>
+                <div class="hashi-content">
+                    <div class="hashi-title">Hash - Our Foundation</div>
+                    We are deeply rooted in the native spirit of blockchain, with secure, reliable, and trustless technology as our unshakeable foundation.
+                </div>
+            </div>
+        </div>
+
+        <div class="important-quote">
+            Our vision remains consistent: to become the Sovereign Financial Layer of the Bittensor ecosystem, unleashing its hundred-billion-dollar liquidity potential and serving as the core engine driving Bittensor toward its next growth phase.
+        </div>
+    </div>
+
+    <!-- Chapter 1: Technical Architecture -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[CHAPTER 1]</div>
+            <h2 class="chapter-title">Technical Architecture: A Trinity System Rooted in Bittensor</h2>
+            <div class="chapter-tagline">Separation of Incentive, Execution & Consensus</div>
+        </div>
+        
+        <div class="content-paragraph">
+            Hashi Chain adopts a three-layer modular architecture that achieves separation of incentive, execution, and consensus. This design ensures optimal balance among decentralization, high performance, and security while being completely rooted in Bittensor's native philosophy.
+        </div>
+        
+        <div class="section-title">1.1 The Incentive Layer: The Hashi Chain Subnet</div>
+        
+        <div class="content-paragraph">
+            We do not create a new, isolated economic system, but strictly follow and leverage Bittensor's powerful native incentive model to secure our entire network infrastructure.
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text technical">Core Mechanism</span>: This is a system based on <span class="highlight-text">Yuma Consensus</span>. As a dedicated subnet of the Bittensor mainnet, we focus on a specific task: evaluating and rewarding participants who provide computing and validation services for the Hashi Chain Layer 1 network.</li>
+            <li><span class="icon-text technical">Miners</span>: Their core work is running high-performance, data-consistent Hashi Chain Layer 1 EVM full nodes, providing reliable and verifiable AI computing and storage services for the entire ecosystem.</li>
+            <li><span class="icon-text technical">Validators</span>: Continuously and anonymously monitor, test, and score the service quality of miner nodes (such as response speed, data accuracy, and uptime).</li>
+            <li><span class="icon-text economic">Incentive Source</span>: Based on validator scores, the Bittensor mainnet distributes TAO rewards to our subnet every block. The subnet also distributes our native token dTAO_Hashi to miners and validators according to Yuma Consensus.</li>
+        </ul>
+        
+        <div class="section-title">1.2 The Execution Layer: The Hashi Chain Layer 1</div>
+        
+        <div class="content-paragraph">
+            This is the high-performance blockchain where all financial activities occur. It is extremely friendly to both developers and users. This is an independent Layer, not a Rollup—a <span class="highlight-text">key strategic decision</span>.
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text technical">Strategic Positioning</span>: While the Bittensor mainnet provides the decentralization and security we need, as an independent Layer 1, we can fully control block time, throughput, and transaction fees, providing a solid technical foundation for implementing Solana-like high-frequency, proactive AMM—something no Layer 2 EVM solution can match.</li>
+            <li><span class="icon-text technical">Tech Stack</span>: We will build based on mature Layer 1 technology stacks (referencing Cosmos SDK and Substrate) and integrate EVM compatibility layers.</li>
+            <li><span class="icon-text bridge">For Developers</span>: Any developers of existing Ethereum DeFi applications (such as Uniswap, Aave, etc.) can seamlessly deploy their smart contracts to Hashi Chain without code modifications.</li>
+            <li><span class="icon-text bridge">For Users</span>: Users will enjoy extremely low gas fees, second-level transaction confirmation speeds, and familiar wallet experiences (such as MetaMask).</li>
+        </ul>
+        
+        <div class="section-title">1.3 The Consensus Layer: The Validation Committee</div>
+        
+        <div class="content-paragraph">
+            To achieve optimal balance between decentralization and performance, we adopt a pragmatic <span class="highlight-text">"multi-centralized"</span> consensus solution whose security is entirely derived from the socio-economic game theory of the Bittensor ecosystem.
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text technical">Composition</span>: Jointly composed of Root Validators from the Hashi Chain subnet and subnet owners (us) forming a "Validation Committee."</li>
+            <li><span class="icon-text technical">Responsibilities</span>: This committee is responsible for ordering transactions on Hashi Chain Layer 1 and packaging transaction data into blocks.</li>
+            <li><span class="icon-text economic">Security Guarantee</span>: This is a security model based on <span class="highlight-text">"Social Consensus."</span> Committee members are all core stakeholders who have invested enormous economic costs in the Bittensor ecosystem (staking large amounts of TAO in the root network). Their cost of malicious behavior far exceeds potential benefits, thus ensuring high credibility.</li>
+        </ul>
+    </div>
+
+    <!-- Chapter 2: Core Modules & Economic Flywheel -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[CHAPTER 2]</div>
+            <h2 class="chapter-title">Core Modules & Economic Flywheel</h2>
+            <div class="chapter-tagline">Liquidity Bridge & Value Capture Mechanism</div>
+        </div>
+        
+        <div class="section-title">2.1 The Liquidity Bridge (The Hashi): sTAO</div>
+        
+        <div class="content-paragraph">
+            It remains the lifeline connecting the Bittensor mainnet with Hashi Chain. We adopt multi-centralized custody and automatic staking mechanisms to ensure that <span class="highlight-text">1 sTAO always equals 1 TAO</span>. All TAO entering our ecosystem can simultaneously earn "mainnet staking rewards" and "on-chain DeFi yields," maximizing capital efficiency.
+        </div>
+        
+        <div class="section-title">2.2 Economic Flywheel Model</div>
+        
+        <div class="content-paragraph">
+            The core logic of this model is to operate on a high-performance Layer 1 network and continuously capture value.
+        </div>
+        
+        <div class="content-paragraph">
+            The economic flywheel operates as follows:
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text economic">Gas Fee in sTAO</span>: All transaction fees on the Hashi Chain Layer 1 are paid using sTAO, creating new and continuous use cases for TAO.</li>
+            <li><span class="icon-text economic">Protocol Revenue</span>: The protocol treasury uniformly collects these fees.</li>
+            <li><span class="icon-text economic">Buyback & Burn</span>: The treasury then automatically and continuously buys back and burns dTAO_Hashi on a Layer 1 DEX through smart contracts, forming strong deflationary expectations and value support.</li>
+        </ul>
+    </div>
+
+    <!-- Chapter 3: Core Innovations -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[CHAPTER 3]</div>
+            <h2 class="chapter-title">Core Innovations: Financial Primitives Tailored for Bittensor</h2>
+            <div class="chapter-tagline">AI-Driven AMM & Stablecoin System</div>
+        </div>
+        
+        <div class="section-title">3.1 Next-Generation AMM: Empowering Bittensor with Solana Model</div>
+        
+        <div class="content-paragraph">
+            This is a core consideration in our Layer 1 design. We will build an AMM system completely different from traditional Uniswap models, drawing from the specialized AMM design essence successfully validated in the Solana ecosystem, serving as a supplement and optimization to dTAO's Uniswap trading model on the Bittensor mainnet.
+        </div>
+        
+        <div class="subsection-title">Core Concept</div>
+        <div class="content-paragraph">
+            Transitioning from <span class="highlight-text">"passive liquidity pools"</span> to <span class="highlight-text">"AI proactive on-chain market making."</span> Referencing Solana's PMM model, our AMM doesn't rely on retail LPs but is driven by professional, programmatic AI market-making strategies.
+        </div>
+        
+        <div class="subsection-title">Technical Implementation</div>
+        <ul class="feature-list">
+            <li><span class="icon-text technical">External Price Driven</span>: Our AMM won't price solely based on token ratios in pools, but through AI, which simulates prices based on Bittensor's ecosystem rules and user behavioral data. It then adjusts quotes accordingly to provide users with minimal spreads and slippage.</li>
+            <li><span class="icon-text technical">High-Frequency Quoting</span>: Thanks to our Layer 1's extremely low gas fees and second-level finality, market makers can conduct cost-free high-frequency quoting, bringing users unprecedented trading execution efficiency and better trading prices.</li>
+        </ul>
+        
+        <div class="section-title">3.2 DBAI: Truly AI-Driven Decentralized Stablecoin</div>
+        
+        <div class="content-paragraph">
+            We will launch DBAI, a unique AI-driven stablecoin with Bittensor staking yields as underlying collateral and stability guaranteed by Yuma Consensus.
+        </div>
+        
+        <div class="important-quote">
+            Naming: We chose "DBAI" to pay tribute to MakerDAO's DAI, one of the most successful and respected decentralized stablecoins in the DeFi space. DBAI aims to inherit its decentralized spirit and apply it to the AI economy.
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text economic">Underlying Collateral</span>: DBAI's core collateral consists of TAO delegated by users to Hashi Chain validator nodes and the multi-subnet validator revenue sharing it generates. This is a more robust underlying asset than ordinary crypto assets because it's closely tied to value creation in the real AI industry.</li>
+        </ul>
+        
+        <div class="subsection-title">AI Stability Mechanism (Based on Yuma Consensus)</div>
+        <div class="content-paragraph">
+            DBAI's stability is guaranteed by an innovative, three-layer mechanism rooted in Bittensor:
+        </div>
+        
+        <ul class="feature-list">
+            <li><span class="icon-text technical">Dynamic Over-Collateralization</span>: We will dynamically calculate optimal collateralization rates by monitoring TAO volatility in real-time and submitting suggestions. The validation system, while detecting Layer 1 node operations, evaluates and weights miner node feedback through Yuma Consensus. This ultimately derives a network-wide consensus for dynamically adjusted collateralization rates, maximizing capital efficiency while avoiding risks.</li>
+            <li><span class="icon-text technical">Proprietary AMM Liquidity Engine</span>: DBAI deeply integrates with our PMM. AI algorithms directly manage AMM quoting strategies, ensuring DBAI trading always has minimal slippage and deep liquidity.</li>
+            <li><span class="icon-text economic">Protocol-Controlled Incentive Pool</span>: The protocol owns a dTAO_Hashi-powered incentive pool used to quickly buy back DBAI to maintain its peg during extreme market volatility.</li>
+        </ul>
+    </div>
+
+    <!-- Chapter 4: Business Model & Market Entry Strategy -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[CHAPTER 4]</div>
+            <h2 class="chapter-title">Business Model & Market Entry Strategy</h2>
+            <div class="chapter-tagline">Empowering the Ecosystem: Our Business Model</div>
+        </div>
+        
+        <div class="content-paragraph">
+            Our core philosophy remains unchanged: to indirectly profit by providing crucial <span class="highlight-text">"positive externalities"</span> to the entire Bittensor ecosystem. We firmly believe that empowering the ecosystem is the best business model.
+        </div>
+        
+        <div class="section-title">Revenue Sources</div>
+        <div class="content-paragraph">
+            Our diversified revenue will include:
+        </div>
+        <ul class="feature-list">
+            <li><span class="icon-text economic">Gas Fees</span>: Transaction fees from the Hashi Chain Layer 1 network</li>
+            <li><span class="icon-text economic">DeFi Protocol Service Fees</span>: AMM trading fees, lending protocol fees, etc.</li>
+            <li><span class="icon-text economic">Cross-Chain Bridge Fees</span>: sTAO cross-chain bridging service fees</li>
+            <li><span class="icon-text economic">Validator Node Revenue Sharing</span>: Revenue sharing from TAO staking obtained by our validator nodes</li>
+        </ul>
+        
+        <div class="section-title">Market Entry Strategy</div>
+        <div class="content-paragraph">
+            We will enter the market in phases:
+        </div>
+        <ul class="feature-list">
+            <li><span class="icon-text bridge">Phase 1</span>: Become the preferred and sole platform for all Bittensor subnets to conduct initial liquidity bootstrapping</li>
+            <li><span class="icon-text bridge">Phase 2</span>: Establish cross-chain bridges with more mainstream EVM ecosystems, becoming <span class="highlight-text">"Bittensor's Bridge of Chains"</span></li>
+            <li><span class="icon-text bridge">Phase 3</span>: Build unshakeable market trust through extreme transparency</li>
+        </ul>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="chapter page-break">
+        <div class="chapter-header">
+            <div class="chapter-number">[CONCLUSION]</div>
+            <h2 class="chapter-title">An Unreplicable Advantage</h2>
+            <div class="chapter-tagline">The Bridge to the Future</div>
+        </div>
+        
+        <div class="content-paragraph">
+            Hashi Chain is not just a Layer 1 network; it is the missing financial <span class="highlight-text">"operating system"</span> of the Bittensor economy. We stand at a perfect confluence, perfectly combining three unique advantages: Bittensor's AI incentive layer, high-performance Layer 1, and proprietary AMM, constructing an unprecedented decentralized financial infrastructure.
+        </div>
+        
+        <div class="important-quote">
+            We cordially invite more builders to join Hashi Chain, to build this bridge to the future together, unleash the full potential of the Bittensor ecosystem, and in this process, capture a generational value opportunity.
+        </div>
+        
+        <div class="emphasis-box">
+            <div class="content-paragraph" style="text-align: center; font-size: 18px; font-weight: bold; color: #E53E3E; margin-bottom: 0;">
+                Build Hashi Chain Together, Create Bittensor's Future
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">
+        <div>Hashi Chain Blueprint: Building the Sovereign Financial Layer for Bittensor</div>
+        <div>Blockchain Infrastructure Project | 2025</div>
+        <div>© 2025 Asiatensor Foundation. All rights reserved.</div>
+    </div>
+</body>
+</html>
